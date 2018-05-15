@@ -1,0 +1,104 @@
+
+uniprot_sprot_concatenated_target_decoy.fasta
+Max Spectra 0
+got Spectra to Score in 384.892 sec
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/steve/bigones/uniprot_sprot_concatenated_target_decoy.fasta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 1200
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Mapped Peptides in 24.431 min
+built best scores in 24.432 min
+Total Scans Scored 0
+=========================================
+====  Accululators              =========
+=========================================
+TotalPeptidesScored 398M
+AddIndexToSpectrum  totalCalls:7600 totalTime:     53.26 msec machines:15 variance  0.045
+AppendScanStringToWriter  totalCalls:7240 totalTime:   9313.27 msec machines:15 variance  0.063
+CombineCometScoringResults  totalCalls:256K totalTime:    930.73 msec machines:15 variance  0.036
+DigestProteinFunction  totalCalls:2153K totalTime:     18.74 hour machines:15 variance  0.021
+MapSpectraStringToRawScan  totalCalls:826K totalTime:     85.77 min machines:15 variance  0.157
+MapToCometSpectrum  totalCalls:7600 totalTime:     88.97 sec machines:15 variance  0.045
+ParsedProteinToProtein  totalCalls:2153K totalTime:   7093.39 msec machines:15 variance  0.021
+ScoreSpectrumAndPeptideWithCogroupWithoutHash  totalCalls:96K totalTime:     27.13 hour machines:15 variance  0.046
+mapMeasuredSpectraToBins  totalCalls:7600 totalTime:    211.75 msec machines:15 variance  0.045
+mapPolypeptidesToBin  totalCalls:2774M totalTime:     46.26 min machines:15 variance  0.019
+PeptideDistribution
+Max value 56K total 0
+1       632
+2       925
+4       1151
+8       1273
+16      1592
+32      1860
+64      2482
+128     2992
+256     3889
+512     5153
+1024    8409
+2048    14478
+4096    13236
+8192    9472
+16384   3880
+32K     67
+
+SpectrumDictribution
+Max value 9 total 0
+1       47K
+2       19648
+4       3365
+8       28
+
+
+=========================================
+====  Accululators              =========
+=========================================
+TotalPeptidesScored 397M
+AddIndexToSpectrum  totalCalls:7600 totalTime:     48.44 msec machines:15 variance  0.058
+AppendScanStringToWriter  totalCalls:7240 totalTime:   7779.72 msec machines:15 variance  0.119
+CombineCometScoringResults  totalCalls:257K totalTime:    844.87 msec machines:15 variance  0.022
+MapSpectraStringToRawScan  totalCalls:826K totalTime:     86.72 min machines:15 variance  0.163
+MapToCometSpectrum  totalCalls:7600 totalTime:     89.46 sec machines:15 variance  0.058
+ScoreSpectrumAndPeptideWithCogroupWithoutHash  totalCalls:96K totalTime:     21.28 hour machines:15 variance  0.019
+mapMeasuredSpectraToBins  totalCalls:7600 totalTime:    224.97 msec machines:15 variance  0.058
+mapPolypeptidesToBin  totalCalls:2774M totalTime:     43.19 min machines:15 variance  0.026
+PeptideDistribution
+Max value 57K total 0
+1       636
+2       910
+4       1168
+8       1255
+16      1590
+32      1879
+64      2455
+128     2988
+256     3913
+512     5167
+1024    8440
+2048    14546
+4096    13212
+8192    9471
+16384   3847
+32K     63
+
+SpectrumDictribution
+Max value 9 total 0
+1       47K
+2       19659
+4       3364
+8       28
+
+Total all Functions
+ totalCalls:2775M totalTime:     23.47 hour machines:15 variance  0.026
+Total Run Time in 64.713 min
+Finished Scoring in 64.715 min
+
+
+Total all Functions
+ totalCalls:2779M totalTime:     48.10 hour machines:15 variance  0.019
+Total Run Time in 93.255 min
+Finished Scoring in 93.257 min

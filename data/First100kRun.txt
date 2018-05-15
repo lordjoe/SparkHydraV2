@@ -1,0 +1,1196 @@
+login as: steve
+steve@hwlogin.labs.uninett.no's password:
+Linux hwlogin 3.16.0-0.bpo.4-amd64 #1 SMP Debian 3.16.7-ckt9-2~bpo70+1 (2015-04-                        21) x86_64
+Welcome to hwlogin.labs.uninett.no. Report security issues to cert@uninett.no.
+Debian 7.8 amd64 Linux 3.16.0-0.bpo.4-amd64
+Last login: Fri Jul 24 18:57:50 2015 from 50-46-125-20.evrt.wa.frontiernet.net
+steve@hwlogin:~$ spark-submit --class com.lordjoe.distributed.hydra.comet_spark.                        SparkCometScanScorer SteveSpark.jar ~/SparkClusterEupaG.properties input_searchG                        UI_scan10000.xml
+15/07/24 20:41:42 WARN SparkConf: In Spark 1.0 and later spark.local.dir will be                         overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mes                        os/standalone and LOCAL_DIRS in YARN).
+15/07/24 20:41:45 WARN AbstractLifeCycle: FAILED SelectChannelConnector@0.0.0.0:                        4040: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+        at sun.nio.ch.Net.bind0(Native Method)
+        at sun.nio.ch.Net.bind(Net.java:437)
+        at sun.nio.ch.Net.bind(Net.java:429)
+        at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:                        223)
+        at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+        at org.spark-project.jetty.server.nio.SelectChannelConnector.open(Select                        ChannelConnector.java:187)
+        at org.spark-project.jetty.server.AbstractConnector.doStart(AbstractConn                        ector.java:316)
+        at org.spark-project.jetty.server.nio.SelectChannelConnector.doStart(Sel                        ectChannelConnector.java:265)
+        at org.spark-project.jetty.util.component.AbstractLifeCycle.start(Abstra                        ctLifeCycle.java:64)
+        at org.spark-project.jetty.server.Server.doStart(Server.java:293)
+        at org.spark-project.jetty.util.component.AbstractLifeCycle.start(Abstra                        ctLifeCycle.java:64)
+        at org.apache.spark.ui.JettyUtils$.org$apache$spark$ui$JettyUtils$$conne                        ct$1(JettyUtils.scala:228)
+        at org.apache.spark.ui.JettyUtils$$anonfun$2.apply(JettyUtils.scala:238)
+        at org.apache.spark.ui.JettyUtils$$anonfun$2.apply(JettyUtils.scala:238)
+        at org.apache.spark.util.Utils$$anonfun$startServiceOnPort$1.apply$mcVI$                        sp(Utils.scala:1991)
+        at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+        at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:1982)
+        at org.apache.spark.ui.JettyUtils$.startJettyServer(JettyUtils.scala:238                        )
+        at org.apache.spark.ui.WebUI.bind(WebUI.scala:117)
+        at org.apache.spark.SparkContext$$anonfun$13.apply(SparkContext.scala:44                        8)
+        at org.apache.spark.SparkContext$$anonfun$13.apply(SparkContext.scala:44                        8)
+        at scala.Option.foreach(Option.scala:236)
+        at org.apache.spark.SparkContext.<init>(SparkContext.scala:448)
+        at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.sc                        ala:61)
+        at com.lordjoe.distributed.SparkUtilities.getCurrentContext(SparkUtiliti                        es.java:438)
+        at com.lordjoe.distributed.spark.HydraSparkUtilities.getHadoopFileSystem                        (HydraSparkUtilities.java:35)
+        at com.lordjoe.distributed.spark.HydraSparkUtilities.readFrom(HydraSpark                        Utilities.java:54)
+        at com.lordjoe.distributed.hydra.scoring.SparkMapReduceScoringHandler.<i                        nit>(SparkMapReduceScoringHandler.java:58)
+        at com.lordjoe.distributed.hydra.comet_spark.CometScoringHandler.<init>(                        CometScoringHandler.java:40)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.buildC                        ometScoringHandler(SparkCometScanScorer.java:292)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.scorin                        gUsingCogroup(SparkCometScanScorer.java:725)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.main(S                        parkCometScanScorer.java:1138)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.                        java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAcces                        sorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:497)
+        at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSub                        mit$$runMain(SparkSubmit.scala:664)
+        at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:16                        9)
+        at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:192)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:111)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+15/07/24 20:41:45 WARN AbstractLifeCycle: FAILED org.spark-project.jetty.server.                        Server@207ea13: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+        at sun.nio.ch.Net.bind0(Native Method)
+        at sun.nio.ch.Net.bind(Net.java:437)
+        at sun.nio.ch.Net.bind(Net.java:429)
+        at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:                        223)
+        at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+        at org.spark-project.jetty.server.nio.SelectChannelConnector.open(Select                        ChannelConnector.java:187)
+        at org.spark-project.jetty.server.AbstractConnector.doStart(AbstractConn                        ector.java:316)
+        at org.spark-project.jetty.server.nio.SelectChannelConnector.doStart(Sel                        ectChannelConnector.java:265)
+        at org.spark-project.jetty.util.component.AbstractLifeCycle.start(Abstra                        ctLifeCycle.java:64)
+        at org.spark-project.jetty.server.Server.doStart(Server.java:293)
+        at org.spark-project.jetty.util.component.AbstractLifeCycle.start(Abstra                        ctLifeCycle.java:64)
+        at org.apache.spark.ui.JettyUtils$.org$apache$spark$ui$JettyUtils$$conne                        ct$1(JettyUtils.scala:228)
+        at org.apache.spark.ui.JettyUtils$$anonfun$2.apply(JettyUtils.scala:238)
+        at org.apache.spark.ui.JettyUtils$$anonfun$2.apply(JettyUtils.scala:238)
+        at org.apache.spark.util.Utils$$anonfun$startServiceOnPort$1.apply$mcVI$                        sp(Utils.scala:1991)
+        at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:141)
+        at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:1982)
+        at org.apache.spark.ui.JettyUtils$.startJettyServer(JettyUtils.scala:238                        )
+        at org.apache.spark.ui.WebUI.bind(WebUI.scala:117)
+        at org.apache.spark.SparkContext$$anonfun$13.apply(SparkContext.scala:44                        8)
+        at org.apache.spark.SparkContext$$anonfun$13.apply(SparkContext.scala:44                        8)
+        at scala.Option.foreach(Option.scala:236)
+        at org.apache.spark.SparkContext.<init>(SparkContext.scala:448)
+        at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.sc                        ala:61)
+        at com.lordjoe.distributed.SparkUtilities.getCurrentContext(SparkUtiliti                        es.java:438)
+        at com.lordjoe.distributed.spark.HydraSparkUtilities.getHadoopFileSystem                        (HydraSparkUtilities.java:35)
+        at com.lordjoe.distributed.spark.HydraSparkUtilities.readFrom(HydraSpark                        Utilities.java:54)
+        at com.lordjoe.distributed.hydra.scoring.SparkMapReduceScoringHandler.<i                        nit>(SparkMapReduceScoringHandler.java:58)
+        at com.lordjoe.distributed.hydra.comet_spark.CometScoringHandler.<init>(                        CometScoringHandler.java:40)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.buildC                        ometScoringHandler(SparkCometScanScorer.java:292)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.scorin                        gUsingCogroup(SparkCometScanScorer.java:725)
+        at com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer.main(S                        parkCometScanScorer.java:1138)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.                        java:62)
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAcces                        sorImpl.java:43)
+        at java.lang.reflect.Method.invoke(Method.java:497)
+        at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSub                        mit$$runMain(SparkSubmit.scala:664)
+        at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:16                        9)
+        at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:192)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:111)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+15/07/24 20:41:45 WARN Utils: Service 'SparkUI' could not bind on port 4040. Att                        empting port 4041.
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@712: Client enviro                        nment:zookeeper.version=zookeeper C client 3.4.5
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@716: Client enviro                        nment:host.name=hwlogin
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@723: Client enviro                        nment:os.name=Linux
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@724: Client enviro                        nment:os.arch=3.16.0-0.bpo.4-amd64
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@725: Client enviro                        nment:os.version=#1 SMP Debian 3.16.7-ckt9-2~bpo70+1 (2015-04-21)
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@733: Client enviro                        nment:user.name=steve
+2015-07-24 20:41:46,164:8754(0x7f51d555f700):ZOO_INFO@log_env@741: Client enviro                        nment:user.home=/home/steve
+2015-07-24 20:41:46,165:8754(0x7f51d555f700):ZOO_INFO@log_env@753: Client enviro                        nment:user.dir=/home/steve
+2015-07-24 20:41:46,165:8754(0x7f51d555f700):ZOO_INFO@zookeeper_init@786: Initia                        ting client connection, host=pltrd004.labs.uninett.no:2181,pltrd008.labs.uninett                        .no:2181,pltrd009.labs.uninett.no:2181 sessionTimeout=10000 watcher=0x7f51da5c3e                        d0 sessionId=0 sessionPasswd=<null> context=0x7f51e8222850 flags=0
+I0724 20:41:46.164841  8885 sched.cpp:157] Version: 0.22.1
+2015-07-24 20:41:46,172:8754(0x7f51d0d56700):ZOO_INFO@check_events@1703: initiat                        ed connection to server [158.38.100.41:2181]
+2015-07-24 20:41:46,194:8754(0x7f51d0d56700):ZOO_INFO@check_events@1750: session                         establishment complete on server [158.38.100.41:2181], sessionId=0x24d1a079b260                        123, negotiated timeout=10000
+I0724 20:41:46.195092  8893 group.cpp:313] Group process (group(1)@158.38.213.10                        7:47715) connected to ZooKeeper
+I0724 20:41:46.195129  8893 group.cpp:790] Syncing group operations: queue size                         (joins, cancels, datas) = (0, 0, 0)
+I0724 20:41:46.195142  8893 group.cpp:385] Trying to create path '/mesos' in Zoo                        Keeper
+I0724 20:41:46.197661  8886 detector.cpp:138] Detected a new leader: (id='31')
+I0724 20:41:46.197898  8888 group.cpp:659] Trying to get '/mesos/info_0000000031                        ' in ZooKeeper
+I0724 20:41:46.199072  8888 detector.cpp:452] A new leading master (UPID=master@                        158.38.100.42:5050) is detected
+I0724 20:41:46.199197  8892 sched.cpp:254] New master detected at master@158.38.                        100.42:5050
+I0724 20:41:46.199364  8892 sched.cpp:264] No credentials provided. Attempting t                        o register without authentication
+I0724 20:41:46.202077  8892 sched.cpp:448] Framework registered with 20150523-21                        5645-711206558-5050-22943-0594
+Spark Conf Properties
+spark.eventLog.enabled=true
+spark.serializer=org.apache.spark.serializer.JavaSerializer
+spark.executorEnv.MESOS_NATIVE_JAVA_LIBRARY=/usr/local/lib/libmesos.so
+spark.driver.memory=12g
+spark.mesos.executor.memoryOverhead=3128
+spark.shuffle.file.buffer=512k
+spark.executorEnv.HADOOP_HOME=/usr/lib/hadoop
+spark.ui.killEnabled=true
+spark.local.dir=/data/1/spark,/data/2/spark,/data/3/spark
+com.lordjoe.distributed.marker_property=spark_property_set
+spark.io.compression.codec=lz4
+spark.hadoop.validateOutputSpecs=false
+spark.executor.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.executorEnv.HADOOP_CONF_DIR=/etc/hadoop/conf.uninett
+spark.shuffle.consolidateFiles=true
+spark.app.name=Anonymous
+spark.eventLog.dir=hdfs://daas/spark-events
+spark.reducer.maxSizeInFlight=64m
+spark.driver.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.shuffle.manager=tungsten-sort
+spark.storage.memoryFraction=0.3
+spark.history.fs.logDirectory=hdfs://daas/spark-events
+spark.shuffle.spill.compress=true
+spark.shuffle.sort.bypassMergeThreshold=100
+spark.executor.memory=12g
+spark.mesos.coarse=true
+spark.executor.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.kryo.registrator=com.lordjoe.distributed.hydra.HydraKryoSerializer
+spark.master=mesos://zk://pltrd004.labs.uninett.no:2181,pltrd008.labs.uninett.no                        :2181,pltrd009.labs.uninett.no:2181/mesos
+spark.default.parallelism=360
+spark.jars=file:/home/steve/SteveSpark.jar
+spark.driver.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.shuffle.memoryFraction=0.5
+spark.driver.maxResultSize=3g
+spark.shuffle.spill=true
+Set Log to Warn
+list path, default parameters = parameters_searchGUI.xml
+protein, taxon = uniprot_sprot_concatenated_target_decoy.fasta
+spectrum, path = scan10000.mzXML
+scoring, algorithm = comet
+output, path = scan10000.out.xml
+list path, taxonomy information = taxonomy_searchGUI.xml
+Setting default path hdfs://daas/promec/eupa2015/
+15/07/24 20:41:49 WARN DFSClient: DFSInputStream has been closed already
+opening hdfs://daas/promec/eupa2015/taxonomy_searchGUI.xml as hdfs://daas/promec                        /eupa2015/taxonomy_searchGUI.xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+uniprot_sprot_concatenated_target_decoy.fasta
+Max Spectra 0
+Total # of splits: 9
+[Stage 0:>                                                          (0 + 0) / 9]                        2015-07-24 21:07:10,758:8754(0x7f51d0d56700):ZOO_WARN@zookeeper_interest@1557: E                        xceeded deadline by 11ms
+Spectra  to Score has 9998
+got Spectra to Score in 59.122 min
+Total Spectra has 9998
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Repartitioning from 9 to 360
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Mapped Peptides in 59.308 min
+built best scores in 59.309 min
+Total Scans Scored 0
+=========================================
+====  Accululators              =========
+=========================================
+TotalPeptidesScored 246M
+AddIndexToSpectrum  totalCalls:9998 totalTime:      6.48 msec machines:3 varianc                        e  0.785
+AppendScanStringToWriter  totalCalls:9406 totalTime:   3236.53 msec machines:15                         variance  0.313
+CombineCometScoringResults  totalCalls:72M totalTime:     27.56 sec machines:15                         variance  0.058
+DigestProteinFunction  totalCalls:1076K totalTime:    111.58 min machines:15 var                        iance  0.063
+MapToCometSpectrum  totalCalls:9998 totalTime:     82.09 msec machines:3 varianc                        e  0.785
+ParsedProteinToProtein  totalCalls:1076K totalTime:   2398.10 msec machines:15 v                        ariance  0.063
+ScoreSpectrumAndPeptideWithCogroupWithoutHash  totalCalls:72K totalTime:    368.                        51 min machines:15 variance  0.052
+SplitMapPolypeptidesToBin  totalCalls:634M totalTime:     10.05 min machines:15                         variance  0.062
+mapMeasuredSpectraToBins  totalCalls:19996 totalTime:    857.84 msec machines:14                         variance  0.506
+BinUsage
+max memoryUse=12018M memoryAllocated=2456M, numberSpectra=3, numberPeptides=4498                        0.75 memoryUse=12018M memoryAllocated=2456M, numberSpectra=3, numberPeptides=449                        8
+0.50 memoryUse=12018M memoryAllocated=2456M, numberSpectra=3, numberPeptides=449                        8
+0.25 memoryUse=12018M memoryAllocated=2456M, numberSpectra=3, numberPeptides=449                        8
+
+CometTemporaryMemoryAccumulator
+numberAllocations=94K, totalAllocation=721G
+numberAllocations=73K, totalAllocation=560G
+numberAllocations=73K, totalAllocation=559G
+numberAllocations=71K, totalAllocation=549G
+numberAllocations=68K, totalAllocation=525G
+numberAllocations=68K, totalAllocation=521G
+numberAllocations=65K, totalAllocation=498G
+numberAllocations=63K, totalAllocation=485G
+numberAllocations=49K, totalAllocation=379G
+numberAllocations=48K, totalAllocation=372G
+numberAllocations=48K, totalAllocation=367G
+numberAllocations=48K, totalAllocation=366G
+numberAllocations=45K, totalAllocation=347G
+numberAllocations=45K, totalAllocation=346G
+numberAllocations=45K, totalAllocation=345G
+
+GCTimeAccumulator
+GC Time Max Allocation 93M
+
+MemoryUsage
+Mem Use Max Allocation 12018M
+476M    9
+572M    38
+667M    39
+762M    54
+858M    61
+953M    75
+1049M   72
+1144M   161
+1239M   178
+1335M   193
+1430M   173
+1525M   197
+1621M   253
+1716M   265
+1811M   299
+1907M   308
+2002M   362
+2098M   376
+2193M   410
+2288M   436
+2384M   399
+2479M   455
+2574M   494
+2670M   509
+2765M   520
+2861M   616
+2956M   648
+3051M   661
+3147M   723
+3242M   724
+3337M   806
+3433M   714
+3528M   816
+3623M   783
+3719M   884
+3814M   873
+3910M   869
+4005M   940
+4100M   965
+4196M   999
+4291M   1055
+4386M   1161
+4482M   1009
+4577M   945
+4673M   1046
+4768M   1007
+4863M   905
+4959M   998
+5054M   890
+5149M   840
+5245M   930
+5340M   860
+5435M   910
+5531M   841
+5626M   935
+5722M   840
+5817M   809
+5912M   877
+6008M   805
+6103M   836
+6198M   803
+6294M   860
+6389M   810
+6484M   792
+6580M   797
+6675M   747
+6771M   734
+6866M   764
+6961M   705
+7057M   756
+7152M   721
+7247M   748
+7343M   721
+7438M   738
+7534M   724
+7629M   890
+7724M   752
+7820M   709
+7915M   743
+8010M   748
+8106M   722
+8201M   778
+8296M   708
+8392M   691
+8487M   688
+8583M   758
+8678M   722
+8773M   704
+8869M   680
+8964M   650
+9059M   653
+9155M   669
+9250M   655
+9346M   657
+9441M   562
+9536M   511
+9632M   625
+9727M   567
+9822M   541
+9918M   503
+10013M  524
+10108M  481
+10204M  526
+10299M  515
+10395M  431
+10490M  451
+10585M  385
+10681M  402
+10776M  396
+10871M  382
+10967M  425
+11062M  307
+11157M  368
+11253M  274
+11348M  313
+11444M  238
+11539M  249
+11634M  176
+11730M  183
+11825M  117
+11920M  102
+12016M  41
+12111M  4
+Allocated
+38M     27455
+76M     2382
+114M    2106
+152M    2162
+190M    2064
+228M    2155
+267M    1955
+305M    1875
+343M    1847
+381M    1606
+419M    1466
+457M    1335
+495M    1187
+534M    1178
+572M    1090
+610M    1008
+648M    964
+686M    975
+724M    847
+762M    805
+801M    827
+839M    719
+877M    720
+915M    659
+953M    622
+991M    607
+1029M   582
+1068M   549
+1106M   547
+1144M   517
+1182M   525
+1220M   472
+1258M   502
+1296M   457
+1335M   444
+1373M   404
+1411M   366
+1449M   374
+1487M   339
+1525M   326
+1564M   323
+1602M   307
+1640M   291
+1678M   264
+1716M   299
+1754M   251
+1792M   251
+1831M   222
+1869M   227
+1907M   236
+1945M   194
+1983M   201
+2021M   171
+2059M   159
+2098M   153
+2136M   178
+2174M   159
+2212M   148
+2250M   130
+2288M   144
+2326M   109
+2365M   92
+2403M   84
+2441M   67
+2479M   83
+2517M   57
+2555M   63
+2593M   56
+2632M   50
+2670M   55
+2708M   46
+2746M   42
+2784M   37
+2822M   32
+2861M   31
+2899M   25
+2937M   14
+2975M   19
+3013M   20
+3051M   21
+3089M   13
+3128M   11
+3166M   6
+3204M   15
+3242M   5
+3280M   14
+3318M   6
+3356M   9
+3395M   9
+3433M   8
+3471M   2
+3509M   5
+3547M   6
+3585M   4
+3623M   1
+3662M   1
+3700M   3
+3776M   3
+
+PeptideDistribution
+Max value 0 total 0
+
+SpectrumDistribution
+Max value 0 total 0
+
+Total all Functions
+ totalCalls:709M totalTime:    490.71 min machines:15 variance  0.059
+Total Run Time in 71.559 min
+Finished Scoring in 71.56 min
+I0724 21:53:15.621348 12239 sched.cpp:1589] Asked to stop the driver
+I0724 21:53:15.621534  8889 sched.cpp:831] Stopping framework '20150523-215645-7                        11206558-5050-22943-0594'
+steve@hwlogin:~$ spark-submit --class com.lordjoe.distributed.hydra.comet_spark.                        SparkCometScanScorer SteveSpark.jar ~/SparkClusterEupaG.properties input_searchG                        UI_scan10000.xml
+15/07/25 01:41:34 WARN SparkConf: In Spark 1.0 and later spark.local.dir will be                         overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mes                        os/standalone and LOCAL_DIRS in YARN).
+2015-07-25 01:41:36,445:22504(0x7f5a5efcd700):ZOO_INFO@log_env@712: Client envir                        onment:zookeeper.version=zookeeper C client 3.4.5
+2015-07-25 01:41:36,445:22504(0x7f5a5efcd700):ZOO_INFO@log_env@716: Client envir                        onment:host.name=hwlogin
+2015-07-25 01:41:36,445:22504(0x7f5a5efcd700):ZOO_INFO@log_env@723: Client envir                        onment:os.name=Linux
+2015-07-25 01:41:36,445:22504(0x7f5a5efcd700):ZOO_INFO@log_env@724: Client envir                        onment:os.arch=3.16.0-0.bpo.4-amd64
+2015-07-25 01:41:36,445:22504(0x7f5a5efcd700):ZOO_INFO@log_env@725: Client envir                        onment:os.version=#1 SMP Debian 3.16.7-ckt9-2~bpo70+1 (2015-04-21)
+I0725 01:41:36.445972 22628 sched.cpp:157] Version: 0.22.1
+2015-07-25 01:41:36,446:22504(0x7f5a5efcd700):ZOO_INFO@log_env@733: Client envir                        onment:user.name=steve
+2015-07-25 01:41:36,446:22504(0x7f5a5efcd700):ZOO_INFO@log_env@741: Client envir                        onment:user.home=/home/steve
+2015-07-25 01:41:36,446:22504(0x7f5a5efcd700):ZOO_INFO@log_env@753: Client envir                        onment:user.dir=/home/steve
+2015-07-25 01:41:36,446:22504(0x7f5a5efcd700):ZOO_INFO@zookeeper_init@786: Initi                        ating client connection, host=pltrd004.labs.uninett.no:2181,pltrd008.labs.uninet                        t.no:2181,pltrd009.labs.uninett.no:2181 sessionTimeout=10000 watcher=0x7f5a647db                        ed0 sessionId=0 sessionPasswd=<null> context=0x2bef840 flags=0
+2015-07-25 01:41:36,454:22504(0x7f5a5a7c4700):ZOO_INFO@check_events@1703: initia                        ted connection to server [158.38.100.42:2181]
+2015-07-25 01:41:36,479:22504(0x7f5a5a7c4700):ZOO_INFO@check_events@1750: sessio                        n establishment complete on server [158.38.100.42:2181], sessionId=0x34d1a28baa8                        011e, negotiated timeout=10000
+I0725 01:41:36.479806 22631 group.cpp:313] Group process (group(1)@158.38.213.10                        7:33034) connected to ZooKeeper
+I0725 01:41:36.479863 22631 group.cpp:790] Syncing group operations: queue size                         (joins, cancels, datas) = (0, 0, 0)
+I0725 01:41:36.479876 22631 group.cpp:385] Trying to create path '/mesos' in Zoo                        Keeper
+I0725 01:41:36.482408 22631 detector.cpp:138] Detected a new leader: (id='31')
+I0725 01:41:36.482659 22632 group.cpp:659] Trying to get '/mesos/info_0000000031                        ' in ZooKeeper
+I0725 01:41:36.483834 22631 detector.cpp:452] A new leading master (UPID=master@                        158.38.100.42:5050) is detected
+I0725 01:41:36.483957 22629 sched.cpp:254] New master detected at master@158.38.                        100.42:5050
+I0725 01:41:36.484123 22629 sched.cpp:264] No credentials provided. Attempting t                        o register without authentication
+I0725 01:41:36.486198 22631 sched.cpp:448] Framework registered with 20150523-21                        5645-711206558-5050-22943-0595
+Spark Conf Properties
+spark.eventLog.enabled=true
+spark.serializer=org.apache.spark.serializer.JavaSerializer
+spark.executorEnv.MESOS_NATIVE_JAVA_LIBRARY=/usr/local/lib/libmesos.so
+spark.driver.memory=12g
+spark.mesos.executor.memoryOverhead=3128
+spark.shuffle.file.buffer=512k
+spark.executorEnv.HADOOP_HOME=/usr/lib/hadoop
+spark.ui.killEnabled=true
+spark.local.dir=/data/1/spark,/data/2/spark,/data/3/spark
+com.lordjoe.distributed.marker_property=spark_property_set
+spark.io.compression.codec=lz4
+spark.hadoop.validateOutputSpecs=false
+spark.executor.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.executorEnv.HADOOP_CONF_DIR=/etc/hadoop/conf.uninett
+spark.shuffle.consolidateFiles=true
+spark.app.name=Anonymous
+spark.eventLog.dir=hdfs://daas/spark-events
+spark.reducer.maxSizeInFlight=64m
+spark.driver.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.shuffle.manager=tungsten-sort
+spark.storage.memoryFraction=0.3
+spark.history.fs.logDirectory=hdfs://daas/spark-events
+spark.shuffle.spill.compress=true
+spark.shuffle.sort.bypassMergeThreshold=100
+spark.executor.memory=12g
+spark.mesos.coarse=true
+spark.executor.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.kryo.registrator=com.lordjoe.distributed.hydra.HydraKryoSerializer
+spark.master=mesos://zk://pltrd004.labs.uninett.no:2181,pltrd008.labs.uninett.no                        :2181,pltrd009.labs.uninett.no:2181/mesos
+spark.default.parallelism=360
+spark.jars=file:/home/steve/SteveSpark.jar
+spark.driver.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.shuffle.memoryFraction=0.5
+spark.driver.maxResultSize=3g
+spark.shuffle.spill=true
+Set Log to Warn
+list path, default parameters = parameters_searchGUI.xml
+protein, taxon = uniprot_sprot_concatenated_target_decoy.fasta
+spectrum, path = scan10000.mzXML
+scoring, algorithm = comet
+output, path = scan10000.out.xml
+list path, taxonomy information = taxonomy_searchGUI.xml
+Setting default path hdfs://daas/promec/eupa2015/
+15/07/25 01:41:38 WARN DFSClient: DFSInputStream has been closed already
+opening hdfs://daas/promec/eupa2015/taxonomy_searchGUI.xml as hdfs://daas/promec                        /eupa2015/taxonomy_searchGUI.xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+uniprot_sprot_concatenated_target_decoy.fasta
+Max Spectra 0
+Total # of splits: 9
+Spectra  to Score has 9998
+got Spectra to Score in 11.411 sec
+Total Spectra has 9998
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Repartitioning from 9 to 360
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Mapped Peptides in 20.954 sec
+built best scores in 21.282 sec
+Total Scans Scored 0
+=========================================
+====  Accululators              =========
+=========================================
+TotalPeptidesScored 246M
+AddIndexToSpectrum  totalCalls:9998 totalTime:      6.91 msec machines:3 varianc                        e  0.785
+AppendScanStringToWriter  totalCalls:9406 totalTime:   2962.13 msec machines:15                         variance  0.137
+CombineCometScoringResults  totalCalls:72M totalTime:     27.65 sec machines:15                         variance  0.029
+DigestProteinFunction  totalCalls:1076K totalTime:    111.13 min machines:15 var                        iance  0.000
+MapToCometSpectrum  totalCalls:9998 totalTime:    111.59 msec machines:3 varianc                        e  0.785
+ParsedProteinToProtein  totalCalls:1076K totalTime:   2353.98 msec machines:15 v                        ariance  0.000
+ScoreSpectrumAndPeptideWithCogroupWithoutHash  totalCalls:72K totalTime:    363.                        97 min machines:15 variance  0.043
+SplitMapPolypeptidesToBin  totalCalls:634M totalTime:     10.14 min machines:15                         variance  0.010
+mapMeasuredSpectraToBins  totalCalls:19996 totalTime:    908.47 msec machines:15                         variance  0.437
+BinUsage
+max memoryUse=12031M memoryAllocated=180M, numberSpectra=2, numberPeptides=28100                        .75 memoryUse=12031M memoryAllocated=180M, numberSpectra=2, numberPeptides=2810
+0.50 memoryUse=12031M memoryAllocated=180M, numberSpectra=2, numberPeptides=2810
+0.25 memoryUse=12031M memoryAllocated=180M, numberSpectra=2, numberPeptides=2810
+
+CometTemporaryMemoryAccumulator
+numberAllocations=93K, totalAllocation=715G
+numberAllocations=76K, totalAllocation=584G
+numberAllocations=75K, totalAllocation=574G
+numberAllocations=69K, totalAllocation=531G
+numberAllocations=69K, totalAllocation=530G
+numberAllocations=66K, totalAllocation=510G
+numberAllocations=64K, totalAllocation=495G
+numberAllocations=59K, totalAllocation=454G
+numberAllocations=48K, totalAllocation=370G
+numberAllocations=48K, totalAllocation=368G
+numberAllocations=48K, totalAllocation=366G
+numberAllocations=47K, totalAllocation=365G
+numberAllocations=46K, totalAllocation=354G
+numberAllocations=46K, totalAllocation=352G
+numberAllocations=43K, totalAllocation=328G
+
+GCTimeAccumulator
+GC Time Max Allocation 96M
+
+MemoryUsage
+Mem Use Max Allocation 12031M
+476M    44
+572M    20
+667M    50
+762M    40
+858M    76
+953M    75
+1049M   126
+1144M   147
+1239M   183
+1335M   187
+1430M   220
+1525M   245
+1621M   179
+1716M   251
+1811M   265
+1907M   289
+2002M   320
+2098M   326
+2193M   371
+2288M   446
+2384M   417
+2479M   473
+2574M   453
+2670M   482
+2765M   511
+2861M   593
+2956M   569
+3051M   613
+3147M   650
+3242M   717
+3337M   695
+3433M   782
+3528M   848
+3623M   853
+3719M   873
+3814M   895
+3910M   882
+4005M   855
+4100M   912
+4196M   960
+4291M   1036
+4386M   1047
+4482M   1053
+4577M   1018
+4673M   947
+4768M   933
+4863M   951
+4959M   951
+5054M   850
+5149M   918
+5245M   918
+5340M   788
+5435M   921
+5531M   951
+5626M   890
+5722M   864
+5817M   790
+5912M   852
+6008M   787
+6103M   874
+6198M   893
+6294M   809
+6389M   751
+6484M   787
+6580M   794
+6675M   759
+6771M   740
+6866M   819
+6961M   716
+7057M   736
+7152M   766
+7247M   663
+7343M   736
+7438M   724
+7534M   750
+7629M   641
+7724M   655
+7820M   724
+7915M   609
+8010M   697
+8106M   714
+8201M   798
+8296M   705
+8392M   689
+8487M   703
+8583M   721
+8678M   679
+8773M   694
+8869M   677
+8964M   723
+9059M   700
+9155M   608
+9250M   629
+9346M   687
+9441M   646
+9536M   669
+9632M   624
+9727M   614
+9822M   555
+9918M   569
+10013M  547
+10108M  559
+10204M  564
+10299M  517
+10395M  433
+10490M  508
+10585M  492
+10681M  462
+10776M  429
+10871M  454
+10967M  394
+11062M  375
+11157M  329
+11253M  324
+11348M  306
+11444M  267
+11539M  240
+11634M  236
+11730M  195
+11825M  199
+11920M  160
+12016M  54
+12111M  3
+Allocated
+38M     27430
+76M     2515
+114M    2057
+152M    2198
+190M    2138
+228M    2026
+267M    1988
+305M    1973
+343M    1763
+381M    1590
+419M    1431
+457M    1380
+495M    1226
+534M    1077
+572M    1063
+610M    1065
+648M    1006
+686M    887
+724M    828
+762M    810
+801M    800
+839M    743
+877M    662
+915M    668
+953M    653
+991M    645
+1029M   610
+1068M   577
+1106M   548
+1144M   497
+1182M   529
+1220M   486
+1258M   438
+1296M   431
+1335M   458
+1373M   414
+1411M   369
+1449M   351
+1487M   332
+1525M   323
+1564M   347
+1602M   310
+1640M   318
+1678M   275
+1716M   262
+1754M   235
+1792M   249
+1831M   247
+1869M   226
+1907M   202
+1945M   200
+1983M   206
+2021M   179
+2059M   163
+2098M   151
+2136M   169
+2174M   151
+2212M   161
+2250M   112
+2288M   117
+2326M   119
+2365M   106
+2403M   93
+2441M   99
+2479M   70
+2517M   71
+2555M   68
+2593M   34
+2632M   62
+2670M   40
+2708M   47
+2746M   43
+2784M   40
+2822M   35
+2861M   33
+2899M   42
+2937M   18
+2975M   21
+3013M   19
+3051M   20
+3089M   15
+3128M   9
+3166M   12
+3204M   8
+3242M   17
+3280M   4
+3318M   3
+3356M   4
+3395M   8
+3433M   6
+3471M   10
+3509M   5
+3547M   2
+3623M   1
+3662M   2
+3776M   1
+
+PeptideDistribution
+Max value 0 total 0
+
+SpectrumDistribution
+Max value 0 total 0
+
+Total all Functions
+ totalCalls:709M totalTime:    485.81 min machines:15 variance  0.008
+Total Run Time in 747.339 sec
+Finished Scoring in 747.434 sec
+I0725 01:54:01.884372 22890 sched.cpp:1589] Asked to stop the driver
+I0725 01:54:01.884670 22632 sched.cpp:831] Stopping framework '20150523-215645-7                        11206558-5050-22943-0595'
+steve@hwlogin:~$ spark-submit --class com.lordjoe.distributed.hydra.comet_spark.                        SparkCometScanScorer SteveSpark.jar ~/SparkClusterEupaG.properties input_searchG                        UI_scan100000.xml
+15/07/25 01:59:08 WARN SparkConf: In Spark 1.0 and later spark.local.dir will be                         overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mes                        os/standalone and LOCAL_DIRS in YARN).
+2015-07-25 01:59:10,395:23021(0x7efc408a0700):ZOO_INFO@log_env@712: Client envir                        onment:zookeeper.version=zookeeper C client 3.4.5
+2015-07-25 01:59:10,395:23021(0x7efc408a0700):ZOO_INFO@log_env@716: Client envir                        onment:host.name=hwlogin
+I0725 01:59:10.395941 23144 sched.cpp:157] Version: 0.22.1
+2015-07-25 01:59:10,395:23021(0x7efc408a0700):ZOO_INFO@log_env@723: Client envir                        onment:os.name=Linux
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@log_env@724: Client envir                        onment:os.arch=3.16.0-0.bpo.4-amd64
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@log_env@725: Client envir                        onment:os.version=#1 SMP Debian 3.16.7-ckt9-2~bpo70+1 (2015-04-21)
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@log_env@733: Client envir                        onment:user.name=steve
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@log_env@741: Client envir                        onment:user.home=/home/steve
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@log_env@753: Client envir                        onment:user.dir=/home/steve
+2015-07-25 01:59:10,396:23021(0x7efc408a0700):ZOO_INFO@zookeeper_init@786: Initi                        ating client connection, host=pltrd004.labs.uninett.no:2181,pltrd008.labs.uninet                        t.no:2181,pltrd009.labs.uninett.no:2181 sessionTimeout=10000 watcher=0x7efc46d8a                        ed0 sessionId=0 sessionPasswd=<null> context=0x7efc50705b90 flags=0
+2015-07-25 01:59:10,406:23021(0x7efc3d099700):ZOO_INFO@check_events@1703: initia                        ted connection to server [158.38.100.42:2181]
+2015-07-25 01:59:10,435:23021(0x7efc3d099700):ZOO_INFO@check_events@1750: sessio                        n establishment complete on server [158.38.100.42:2181], sessionId=0x34d1a28baa8                        011f, negotiated timeout=10000
+I0725 01:59:10.435441 23149 group.cpp:313] Group process (group(1)@158.38.213.10                        7:45359) connected to ZooKeeper
+I0725 01:59:10.435503 23149 group.cpp:790] Syncing group operations: queue size                         (joins, cancels, datas) = (0, 0, 0)
+I0725 01:59:10.435516 23149 group.cpp:385] Trying to create path '/mesos' in Zoo                        Keeper
+I0725 01:59:10.441361 23149 detector.cpp:138] Detected a new leader: (id='31')
+I0725 01:59:10.441546 23146 group.cpp:659] Trying to get '/mesos/info_0000000031                        ' in ZooKeeper
+I0725 01:59:10.443852 23146 detector.cpp:452] A new leading master (UPID=master@                        158.38.100.42:5050) is detected
+I0725 01:59:10.443950 23146 sched.cpp:254] New master detected at master@158.38.                        100.42:5050
+I0725 01:59:10.444138 23146 sched.cpp:264] No credentials provided. Attempting t                        o register without authentication
+I0725 01:59:10.446429 23151 sched.cpp:448] Framework registered with 20150523-21                        5645-711206558-5050-22943-0596
+Spark Conf Properties
+spark.eventLog.enabled=true
+spark.serializer=org.apache.spark.serializer.JavaSerializer
+spark.executorEnv.MESOS_NATIVE_JAVA_LIBRARY=/usr/local/lib/libmesos.so
+spark.driver.memory=12g
+spark.mesos.executor.memoryOverhead=3128
+spark.shuffle.file.buffer=512k
+spark.executorEnv.HADOOP_HOME=/usr/lib/hadoop
+spark.ui.killEnabled=true
+spark.local.dir=/data/1/spark,/data/2/spark,/data/3/spark
+com.lordjoe.distributed.marker_property=spark_property_set
+spark.io.compression.codec=lz4
+spark.hadoop.validateOutputSpecs=false
+spark.executor.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.executorEnv.HADOOP_CONF_DIR=/etc/hadoop/conf.uninett
+spark.shuffle.consolidateFiles=true
+spark.app.name=Anonymous
+spark.eventLog.dir=hdfs://daas/spark-events
+spark.reducer.maxSizeInFlight=64m
+spark.driver.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.shuffle.manager=tungsten-sort
+spark.storage.memoryFraction=0.3
+spark.history.fs.logDirectory=hdfs://daas/spark-events
+spark.shuffle.spill.compress=true
+spark.shuffle.sort.bypassMergeThreshold=100
+spark.executor.memory=12g
+spark.mesos.coarse=true
+spark.executor.extraLibraryPath=/usr/lib/hadoop/lib/native
+spark.kryo.registrator=com.lordjoe.distributed.hydra.HydraKryoSerializer
+spark.master=mesos://zk://pltrd004.labs.uninett.no:2181,pltrd008.labs.uninett.no                        :2181,pltrd009.labs.uninett.no:2181/mesos
+spark.default.parallelism=360
+spark.jars=file:/home/steve/SteveSpark.jar
+spark.driver.extraClassPath=/usr/lib/hadoop/lib/hadoop-lzo.jar
+spark.shuffle.memoryFraction=0.5
+spark.driver.maxResultSize=3g
+spark.shuffle.spill=true
+Set Log to Warn
+list path, default parameters = hdfs://daas/promec/eupa2015/parameters_searchGUI                        .xml
+protein, taxon = uniprot_sprot_concatenated_target_decoy.fasta
+spectrum, path = scan100000.mzXML
+scoring, algorithm = comet
+output, path = scan100000.out.xml
+list path, taxonomy information = taxonomy_searchGUI.xml
+Setting default path hdfs://daas/promec/eupa2015/
+15/07/25 01:59:12 WARN DFSClient: DFSInputStream has been closed already
+opening hdfs://daas/promec/eupa2015/taxonomy_searchGUI.xml as hdfs://daas/promec                        /eupa2015/taxonomy_searchGUI.xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+opening taxonomy_searchGUI.xml as hdfs://daas/promec/eupa2015/taxonomy_searchGUI                        .xml
+uniprot_sprot_concatenated_target_decoy.fasta
+Max Spectra 0
+Total # of splits: 84
+Spectra  to Score has 97K
+got Spectra to Score in 16.407 sec
+Total Spectra has 97K
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Repartitioning from 84 to 360
+Max Proteins 0
+Max Proteins 0
+Input path hdfs://daas/promec/eupa2015/uniprot_sprot_concatenated_target_decoy.f                        asta
+Tolerance Ration is : 0.0
+Repartitioning Pair from 87 to 360
+Mapped Peptides in 32.103 sec
+built best scores in 32.158 sec
+Total Scans Scored 0
+=========================================
+====  Accululators              =========
+=========================================
+TotalPeptidesScored 2260M
+AddIndexToSpectrum  totalCalls:99K totalTime:     67.52 msec machines:15 variance  0.637
+AppendScanStringToWriter  totalCalls:83K totalTime:     13.27 sec machines:15 variance  0.099
+CombineCometScoringResults  totalCalls:618M totalTime:    244.91 sec machines:15 variance  0.019
+DigestProteinFunction  totalCalls:1076K totalTime:    126.27 min machines:15 variance  0.000
+MapToCometSpectrum  totalCalls:99K totalTime:    648.18 msec machines:15 variance  0.637
+ParsedProteinToProtein  totalCalls:1076K totalTime:   2402.87 msec machines:15 variance  0.000
+ScoreSpectrumAndPeptideWithCogroupWithoutHash  totalCalls:284K totalTime:     24.95 hour machines:15 variance  0.026
+SplitMapPolypeptidesToBin  totalCalls:634M totalTime:     11.13 min machines:15 variance  0.008
+mapMeasuredSpectraToBins  totalCalls:199K totalTime:   2027.71 msec machines:15 variance  0.225
+BinUsage
+max memoryUse=11887M memoryAllocated=2928M, numberSpectra=5, numberPeptides=35150.75 memoryUse=11887M memoryAllocated=2928M, numberSpectra=5, numberPeptides=3515
+0.50 memoryUse=11887M memoryAllocated=2928M, numberSpectra=5, numberPeptides=3515
+0.25 memoryUse=11887M memoryAllocated=2928M, numberSpectra=5, numberPeptides=3515
+
+CometTemporaryMemoryAccumulator
+numberAllocations=389K, totalAllocation=2974G
+numberAllocations=384K, totalAllocation=2935G
+numberAllocations=380K, totalAllocation=2903G
+numberAllocations=378K, totalAllocation=2891G
+numberAllocations=373K, totalAllocation=2852G
+numberAllocations=371K, totalAllocation=2832G
+numberAllocations=370K, totalAllocation=2827G
+numberAllocations=367K, totalAllocation=2807G
+numberAllocations=367K, totalAllocation=2805G
+numberAllocations=364K, totalAllocation=2784G
+numberAllocations=363K, totalAllocation=2775G
+numberAllocations=361K, totalAllocation=2761G
+numberAllocations=357K, totalAllocation=2726G
+numberAllocations=352K, totalAllocation=2687G
+numberAllocations=348K, totalAllocation=2658G
+numberAllocations=0, totalAllocation=0
+numberAllocations=0, totalAllocation=0
+
+GCTimeAccumulator
+GC Time Max Allocation 96M
+
+MemoryUsage
+Mem Use Max Allocation 11887M
+476M    1
+572M    7
+667M    10
+762M    14
+858M    23
+953M    66
+1049M   108
+1144M   117
+1239M   137
+1335M   234
+1430M   231
+1525M   247
+1621M   363
+1716M   331
+1811M   469
+1907M   476
+2002M   433
+2098M   509
+2193M   593
+2288M   679
+2384M   691
+2479M   706
+2574M   772
+2670M   834
+2765M   800
+2861M   982
+2956M   968
+3051M   989
+3147M   1093
+3242M   1118
+3337M   1149
+3433M   1348
+3528M   1490
+3623M   1701
+3719M   1600
+3814M   1696
+3910M   1975
+4005M   1881
+4100M   2068
+4196M   2142
+4291M   2288
+4386M   2338
+4482M   2372
+4577M   2408
+4673M   2421
+4768M   2402
+4863M   2222
+4959M   2223
+5054M   2471
+5149M   2309
+5245M   2273
+5340M   2334
+5435M   2323
+5531M   2279
+5626M   2421
+5722M   2596
+5817M   2479
+5912M   2951
+6008M   2654
+6103M   2971
+6198M   3127
+6294M   2991
+6389M   3152
+6484M   3195
+6580M   3727
+6675M   3677
+6771M   3663
+6866M   3991
+6961M   4130
+7057M   4396
+7152M   4443
+7247M   4241
+7343M   4779
+7438M   4738
+7534M   4782
+7629M   4852
+7724M   4892
+7820M   5101
+7915M   4901
+8010M   5308
+8106M   5186
+8201M   5278
+8296M   5384
+8392M   4729
+8487M   5167
+8583M   5092
+8678M   5074
+8773M   5026
+8869M   4899
+8964M   4622
+9059M   4700
+9155M   4588
+9250M   4454
+9346M   4365
+9441M   4263
+9536M   3821
+9632M   3614
+9727M   3845
+9822M   3428
+9918M   3238
+10013M  3227
+10108M  3203
+10204M  2653
+10299M  2570
+10395M  2414
+10490M  2214
+10585M  2172
+10681M  1838
+10776M  1655
+10871M  1587
+10967M  1350
+11062M  1158
+11157M  976
+11253M  864
+11348M  716
+11444M  621
+11539M  416
+11634M  254
+11730M  167
+11825M  78
+11920M  8
+Allocated
+38M     119K
+76M     12441
+114M    9249
+152M    8167
+190M    7287
+228M    6616
+267M    6351
+305M    5818
+343M    5458
+381M    5220
+419M    4857
+457M    4532
+495M    4354
+534M    3997
+572M    3830
+610M    3559
+648M    3260
+686M    3199
+724M    3099
+762M    2859
+801M    2684
+839M    2570
+877M    2377
+915M    2257
+953M    2235
+991M    2095
+1029M   2002
+1068M   1884
+1106M   1863
+1144M   1750
+1182M   1680
+1220M   1600
+1258M   1566
+1296M   1523
+1335M   1432
+1373M   1482
+1411M   1287
+1449M   1256
+1487M   1230
+1525M   1168
+1564M   1171
+1602M   1106
+1640M   1062
+1678M   1001
+1716M   966
+1754M   983
+1792M   898
+1831M   812
+1869M   856
+1907M   761
+1945M   764
+1983M   669
+2021M   674
+2059M   661
+2098M   601
+2136M   634
+2174M   547
+2212M   558
+2250M   487
+2288M   481
+2326M   448
+2365M   430
+2403M   412
+2441M   379
+2479M   339
+2517M   342
+2555M   353
+2593M   331
+2632M   298
+2670M   280
+2708M   251
+2746M   268
+2784M   222
+2822M   225
+2861M   203
+2899M   182
+2937M   168
+2975M   166
+3013M   162
+3051M   135
+3089M   131
+3128M   126
+3166M   107
+3204M   95
+3242M   83
+3280M   66
+3318M   52
+3356M   69
+3395M   43
+3433M   37
+3471M   30
+3509M   26
+3547M   20
+3585M   17
+3623M   16
+3662M   8
+3700M   6
+3738M   5
+3776M   3
+3852M   1
+
+PeptideDistribution
+Max value 0 total 0
+
+SpectrumDistribution
+Max value 0 total 0
+
+Total all Functions
+ totalCalls:1256M totalTime:     27.32 hour machines:15 variance  0.011
+Total Run Time in 56.479 min
+Finished Scoring in 56.482 min
+I0725 02:55:37.281904 26233 sched.cpp:1589] Asked to stop the driver
+I0725 02:55:37.282102 23151 sched.cpp:831] Stopping framework '20150523-215645-711206558-5050-22943-0596'
+steve@hwlogin:~$ spark-submit --class com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer SteveSpark.jar ~/SparkClusterEupaG.properties input_searchGUI_scan100000.xml
