@@ -5,6 +5,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.spark.*;
 import org.apache.spark.api.java.*;
 import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.SparkSession;
 import org.systemsbiology.common.*;
 import org.systemsbiology.hadoop.*;
 import scala.*;
@@ -51,13 +52,13 @@ public class SparkContextGetter {
     }
 
 
-    public static synchronized SQLContext getCurrentSQLContext() {
-        if (sqlContext != null)
-            return sqlContext;
-
-        sqlContext = new SQLContext(getCurrentContext());
-        return sqlContext;
-    }
+//    public static synchronized SQLContext getCurrentSQLContext() {
+//        if (sqlContext != null)
+//            return sqlContext;
+//
+//          sqlContext = new SQLContext(getCurrentContext());
+//        return sqlContext;
+//    }
 
 
     public static synchronized Configuration getHadoopConfiguration() {

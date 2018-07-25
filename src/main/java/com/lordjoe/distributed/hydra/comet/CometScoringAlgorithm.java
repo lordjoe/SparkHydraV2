@@ -218,7 +218,7 @@ public class CometScoringAlgorithm extends AbstractScoringAlgorithm {
         m_MaxFragmentCharge = params.getIntParameter("comet.max_fragment_charge", DEFAULT_MAX_FRAGMENT_CHARGE);
         //    if (g_StaticParams.tolerances.dFragmentBinSize == 0.0)
         //       g_StaticParams.tolerances.dFragmentBinSize = DEFAULT_BIN_WIDTH;
-        //
+        //                                                                                        
         //    // Set dInverseBinWidth to its inverse in order to use a multiply instead of divide in BIN macro.
         //    g_StaticParams.dInverseBinWidth = 1.0 /g_StaticParams.tolerances.dFragmentBinSize;
         //    g_StaticParams.dOneMinusBinOffset = 1.0 - g_StaticParams.tolerances.dFragmentBinStartOffset;

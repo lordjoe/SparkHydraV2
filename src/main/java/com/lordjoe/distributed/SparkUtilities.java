@@ -49,6 +49,7 @@ public class SparkUtilities implements Serializable {
     private transient static JavaSparkContext threadContext;
     //  private transient static ThreadLocal<JavaSQLContext> threadContext;
     private transient static SQLContext sqlContext;
+    private transient static SparkSession sparkSession;
     private static final Properties sparkProperties = new Properties();
 
     public static final String LOCAL_PROPERTIES_RESOURCE = "/DefaultSparkLocalCluster.properties";
@@ -175,10 +176,18 @@ public class SparkUtilities implements Serializable {
 
     }
 
+    @SuppressWarnings("unchecked")
+    public static synchronized SparkSession getCurrentSession() {
+        if (sparkSession != null)
+            return sparkSession;
+        sparkSession = SparkSession.builder().sparkContext(getCurrentContext().sc()).getOrCreate();
+        return sparkSession;
+    }
+
     public static synchronized SQLContext getCurrentSQLContext() {
-        if (sqlContext != null)
+          if (sqlContext != null)
             return sqlContext;
-           sqlContext = new SQLContext(getCurrentContext());
+        sqlContext = new SQLContext(getCurrentContext());
         return sqlContext;
     }
 

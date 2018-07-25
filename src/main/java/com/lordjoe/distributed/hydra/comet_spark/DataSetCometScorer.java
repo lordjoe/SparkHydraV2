@@ -6,6 +6,7 @@ import com.lordjoe.distributed.hydra.comet.*;
 import com.lordjoe.distributed.spark.accumulators.*;
 import com.lordjoe.utilities.*;
 import org.apache.spark.api.java.*;
+import org.apache.spark.rdd.RDD;
 import org.apache.spark.sql.*;
 import org.apache.spark.sql.types.*;
 import org.systemsbiology.xtandem.*;
@@ -82,11 +83,15 @@ public class DataSetCometScorer {
         //MZPartitioner partitioner = new MZPartitioner();
         JavaRDD<IMeasuredSpectrum> spectraToScoreX = SparkScanScorer.getMeasuredSpectra(timer, sparkProperties, spectra, scoringApplication);
 
+      //  SparkSession currentSession = SparkUtilities.getCurrentSession();
         SQLContext sqlCtx = SparkUtilities.getCurrentSQLContext();
 
         JavaRDD<RawPeptideScan> spectraToScoreY  = SparkUtilities.asConcreteRDD(spectraToScoreX,RawPeptideScan.class);
 
         Encoder<RawPeptideScan> evidence = Encoders.kryo(RawPeptideScan.class);
+
+        RDD<RawPeptideScan> rdd = spectraToScoreY.rdd();
+     //     Dataset<RawPeptideScan> spectraToScore = currentSession.createDataset(rdd,evidence);
         Dataset<RawPeptideScan> spectraToScore = sqlCtx.createDataset( spectraToScoreY.rdd(), evidence);
 
 

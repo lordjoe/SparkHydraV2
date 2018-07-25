@@ -44,15 +44,17 @@ public class PeptideDatabase implements Serializable {
     private void buildKeyCounts() {
         if(possibllyReadKeyCounts())
             return;
-        SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+        SparkSession currentSession = SparkUtilities.getCurrentSession();
+     // Old Code   SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
         String databaseName1 = getDatabaseName();
         try {
-            Dataset<Row> parquetFile = sqlContext.parquetFile(databaseName1);
+            // Old Code       Dataset<Row> parquetFile = sqlContext.parquetFile(databaseName1);
+            Dataset<Row> parquetFile = currentSession.read().parquet(databaseName1);
 
             //Parquet files can also be registered as tables and then used in SQL statements.
             parquetFile.createOrReplaceTempView("peptides");
-
-            Dataset<Row> binCounts = sqlContext.sql("SELECT massBin,count(*) FROM  peptides  group by massBin ");
+            // Old Code      Dataset<Row> binCounts = sqlContext.sql("SELECT massBin,count(*) FROM  peptides  group by massBin ");
+            Dataset<Row> binCounts = currentSession.sql("SELECT massBin,count(*) FROM  peptides  group by massBin ");
 
             Iterator<Row> rowIterator = binCounts.toJavaRDD().toLocalIterator();
             while (rowIterator.hasNext()) {
@@ -157,14 +159,15 @@ public class PeptideDatabase implements Serializable {
 
         int mzAsInt = key.getMzInt();
         try {
-            SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+            SparkSession currentSession = SparkUtilities.getCurrentSession();
+        //    SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
             SparkUtilities.setLogToWarn();
             String databaseName1 = getDatabaseName();
-            Dataset<Row> parquetFile = sqlContext.parquetFile(databaseName1);
+            Dataset<Row> parquetFile = currentSession.read().parquet(databaseName1);
 
             //Parquet files can also be registered as tables and then used in SQL statements.
             parquetFile.createOrReplaceTempView("peptides");
-            Dataset<Row> binCounts = sqlContext.sql("SELECT * FROM " + "peptides" + " Where  massBin = " + mzAsInt);
+            Dataset<Row> binCounts = currentSession.sql("SELECT * FROM " + "peptides" + " Where  massBin = " + mzAsInt);
             Iterator<Row> rowIterator = binCounts.toJavaRDD().toLocalIterator();
             while (rowIterator.hasNext()) {
                 Row rw = rowIterator.next();

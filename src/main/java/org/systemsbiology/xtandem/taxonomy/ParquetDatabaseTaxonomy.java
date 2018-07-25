@@ -144,12 +144,16 @@ public class ParquetDatabaseTaxonomy implements ITaxonomy {
             // The result of loading a parquet file is also a JavaSchemaRDD.
             String dbName = buildDatabaseName();
 
-            SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
-            Dataset<Row> parquetFile = sqlContext.parquetFile(dbName);
+
+            SparkSession currentSession = SparkUtilities.getCurrentSession();
+          // Old Code  SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+            // Old Code         Dataset<Row> parquetFile = sqlContext.parquetFile(dbName);
+            Dataset<Row> parquetFile = currentSession.read().parquet(dbName);
             //Parquet files can also be registered as tables and then used in SQL statements.
             parquetFile.createOrReplaceTempView("peptides");
      //       JavaSchemaRDD binCounts = sqlContext.sql("SELECT * FROM " + "peptides" );
-            Dataset<Row> binCounts = sqlContext.sql("SELECT * FROM " + "peptides" + " Where  massBin =" + scanmass);
+            // Old Code        Dataset<Row> binCounts = sqlContext.sql("SELECT * FROM " + "peptides" + " Where  massBin =" + scanmass);
+            Dataset<Row> binCounts = currentSession.sql("SELECT * FROM " + "peptides" + " Where  massBin =" + scanmass);
 
             JavaRDD<PeptideSchemaBean> beancounts = binCounts.toJavaRDD().map(PeptideSchemaBean.FROM_ROW);
             JavaRDD<IPolypeptide> counts = beancounts.map(PeptideSchemaBean.FROM_BEAN);

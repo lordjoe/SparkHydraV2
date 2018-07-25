@@ -369,15 +369,18 @@ public class LibraryBuilder implements Serializable {
     public Map<Integer, Integer> getParquetDatabaseSizes() {
         try {
             JavaSparkContext sc = SparkUtilities.getCurrentContext();
-            SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+            SparkSession currentSession = SparkUtilities.getCurrentSession();
+            // Old Code SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
             // Read in the Parquet file created above.  Parquet files are self-describing so the schema is preserved.
             // The result of loading a parquet file is also a JavaSchemaRDD.
             String dbName = buildDatabaseName();
 
-            Dataset<Row> parquetFile = sqlContext.parquetFile(dbName);
+            Dataset<Row> parquetFile = currentSession.read().parquet(dbName);
+           // Old Code Dataset<Row> parquetFile = sqlContext.parquetFile(dbName);
                //Parquet files can also be registered as tables and then used in SQL statements.
             parquetFile.createOrReplaceTempView("peptides");
-            Dataset<Row> binCounts = sqlContext.sql("SELECT massBin,COUNT(massBin) FROM " + "peptides" + "  GROUP BY  massBin");
+            Dataset<Row> binCounts = currentSession.sql("SELECT massBin,COUNT(massBin) FROM " + "peptides" + "  GROUP BY  massBin");
+            // Old Code  Dataset<Row> binCounts = sqlContext.sql("SELECT massBin,COUNT(massBin) FROM " + "peptides" + "  GROUP BY  massBin");
             final Map<Integer, Integer> ret = new HashMap<Integer, Integer>();
             JavaRDD<Tuple2<Integer, Integer>> counts = binCounts.toJavaRDD().map(new Function<Row, Tuple2<Integer, Integer>>() {
                 public Tuple2<Integer, Integer> call(Row row) {

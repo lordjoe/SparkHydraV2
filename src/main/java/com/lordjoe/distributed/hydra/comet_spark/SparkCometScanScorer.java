@@ -791,8 +791,7 @@ public class SparkCometScanScorer {
         // convert spectra into an object with scoring information
         JavaRDD<CometScoredScan> cometSpectraToScore = spectraToScore.map(new MapToCometSpectrum(comet));
 
-        SQLContext sqlCtx = SparkUtilities.getCurrentSQLContext();
-        /*    ==================================================
+          /*    ==================================================
              Creating a Dataset<Row> fails
          ===========================================================*/
  //       Dataset<Row>  dataFrame = sqlCtx.createDataFrame(cometSpectraToScore, CometScoredScan.class);

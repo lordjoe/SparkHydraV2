@@ -67,6 +67,11 @@ public class StatisticalWordCount {
          final Statistics letterStats =    new Statistics();
         sc.register(letterStats,"Letter Statistics" );
 
+        AccumulatorUtilities.getInstance().createAccumulator("TotalLetters");
+        ISparkAccumulators instance = AccumulatorUtilities.getInstance();
+         instance.createAccumulator("Word Statistics") ;
+        instance.createAccumulator("Letter Count") ;
+
         final LongAccumulator totalWords = sc.longAccumulator("Word Statistics");       // Make a simple Long Accumulator
         final LongAccumulator totalLetters = sc.longAccumulator(  "Letter Count");       // Make a simple Long Accumulator
 

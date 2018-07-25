@@ -1,0 +1,4 @@
+# This is a file to test that all Nodex can read a file
+# it is used by com.lordjoe.testing.TestFile access
+# The following number is used in the calculation
+42

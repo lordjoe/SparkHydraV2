@@ -770,7 +770,7 @@ public class DatasetCometScanScorer {
          */
 
 
-        SQLContext sqlCtx = SparkUtilities.getCurrentSQLContext();
+      //  SQLContext sqlCtx = SparkUtilities.getCurrentSQLContext();
         /*    ==================================================
              Creating a DataFrame fails
          ===========================================================*/

@@ -15,10 +15,15 @@ public class WordsMapFunction extends AbstractLoggingFlatMapFunction<String, Str
 
     private static final Pattern SPACE = Pattern.compile(" ");
 
+    public WordsMapFunction() {
+        getAccumulators().createAccumulator("TotalLetters");
+    }
+
 
     public Iterator<String> doCall(String s) {
         // keep count of letters
-        getAccumulators().incrementAccumulator("TotalLetters",s.length());
+        ISparkAccumulators accumulators = getAccumulators();
+        accumulators.incrementAccumulator("TotalLetters",s.length());
          String[] split = SPACE.split(s);
         List<String> ret = new ArrayList<String>();
         for (int i = 0; i < split.length; i++) {

@@ -1,6 +1,8 @@
 package com.lordjoe.distributed.hydra;
 
 import com.lordjoe.distributed.*;
+import com.lordjoe.distributed.spark.accumulators.AccumulatorUtilities;
+import com.lordjoe.distributed.spark.accumulators.ISparkAccumulators;
 import com.lordjoe.distributed.util.*;
 import com.lordjoe.distributed.wordcount.*;
 import org.apache.spark.api.java.*;
@@ -9,6 +11,7 @@ import org.apache.spark.examples.*;
 import org.systemsbiology.xtandem.hadoop.*;
 import scala.*;
 
+import java.lang.Long;
 import java.util.*;
 
 
@@ -36,6 +39,8 @@ public class SimpleLoadTest {
         }
        SparkUtilities.readSparkProperties(args[SPARK_CONFIG_INDEX]);
         Properties sparkProperties = SparkUtilities.getSparkProperties();
+
+
         String pathPrepend = sparkProperties.getProperty("com.lordjoe.distributed.PathPrepend") ;
         if(pathPrepend != null)
             XTandemHadoopUtilities.setDefaultPath(pathPrepend);
@@ -43,12 +48,18 @@ public class SimpleLoadTest {
         SparkUtilities.setAppName("Test Largely to make sure cluster can load");
 
          JavaSparkContext ctx = SparkUtilities.getCurrentContext();
+        ISparkAccumulators instance = AccumulatorUtilities.getInstance();
+        
+        instance.createAccumulator("TotalLetters");
 
-         String inputPath = SparkUtilities.buildPath(args[INPUT_FILE_INDEX] );
+
+
+        String inputPath = SparkUtilities.buildPath(args[INPUT_FILE_INDEX] );
          JavaRDD<String> lines = ctx.textFile(inputPath, 1);
 
          // use my function not theirs
-         JavaRDD<String> words = lines.flatMap(new WordsMapFunction());
+        WordsMapFunction f = new WordsMapFunction();
+        JavaRDD<String> words = lines.flatMap(f);
 
 
          JavaPairRDD<String, Integer> ones = words.mapToPair(new PairFunction<String, String, Integer>() {
@@ -66,6 +77,7 @@ public class SimpleLoadTest {
              System.out.println(o);
          }
 
+        System.out.println(Long.toString(instance.getAccumulator("TotalLetters").value()));
     }
 
 

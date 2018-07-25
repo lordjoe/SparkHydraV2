@@ -22,11 +22,14 @@ public class DatabaseUtilities {
     public static <K> void buildParaquetDatabase( String name,JavaRDD  data,Class  bean) {
         try {
             JavaSparkContext sc = SparkUtilities.getCurrentContext();
-            SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+
+            SparkSession currentSession = SparkUtilities.getCurrentSession();
+       // Old Code     SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
 
                // Apply a schema to an RDD of JavaBeans and register it as a table.
          //     sqlContext.createDataset(data,bean)
-            Dataset<Row> frame = sqlContext.applySchema(data, bean);
+            Dataset<Row> frame = currentSession.createDataFrame(data.rdd(), bean);
+            // Old Code       Dataset<Row> frame = sqlContext.applySchema(data, bean);
 
             Configuration conf = sc.hadoopConfiguration();
              FileSystem fs = FileSystem.get(conf);
@@ -46,10 +49,13 @@ public class DatabaseUtilities {
 
     public static JavaRDD<IPolypeptide> readParquetDatabase(String name) {
         JavaSparkContext sc = SparkUtilities.getCurrentContext();
-        SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+        // old Code     SQLContext sqlContext = SparkUtilities.getCurrentSQLContext();
+        SparkSession currentSession = SparkUtilities.getCurrentSession();
 
+        Dataset<Row> load  = currentSession.readStream().load(name);
         // Apply a schema to an RDD of JavaBeans and register it as a table.
-        JavaRDD<PeptideSchemaBean> beansRDD = sqlContext.load(name).toJavaRDD().map(PeptideSchemaBean.FROM_ROW);
+    // old Code    final Dataset<Row> load = sqlContext.read().load(name);
+        JavaRDD<PeptideSchemaBean> beansRDD = load.toJavaRDD().map(PeptideSchemaBean.FROM_ROW);
         JavaRDD<IPolypeptide> peptides = beansRDD.map(PeptideSchemaBean.FROM_BEAN);
         return peptides;
     }

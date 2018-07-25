@@ -24,6 +24,7 @@ import java.util.*;
  * written by Steve Lewis
  * on May 4, 2010
  */
+@SuppressWarnings("unchecked")
 public class HadoopUtilities {
     public static final Class THIS_CLASS = HadoopUtilities.class;
 

@@ -1,5 +1,7 @@
 package com.lordjoe.distributed;
 
+import org.apache.spark.sql.types.SQLUserDefinedType;
+
 import javax.annotation.*;
 import java.io.*;
 import java.util.*;
@@ -9,6 +11,7 @@ import java.util.*;
  * User: Steve
  * Date: 8/25/2014
  */
+@SuppressWarnings("unchecked")
 public class KeyValueObject<K extends Serializable, V extends Serializable> implements Serializable, Comparable<KeyValueObject> {
 
     /**

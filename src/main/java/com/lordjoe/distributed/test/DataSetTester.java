@@ -30,6 +30,8 @@ public class DataSetTester {
         }
 
         JavaSparkContext currentContext = new JavaSparkContext(sparkConf);
+     //   SparkSession session = SparkSession.builder().sparkContext(currentContext.sc()).getOrCreate();
+
         SQLContext sqlCtx = new SQLContext(currentContext);
 
         List<DatasetTestObject> holder = new ArrayList<DatasetTestObject>();

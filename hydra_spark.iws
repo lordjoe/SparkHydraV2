@@ -1,136 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="hydra_spark:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bb5ed13-fbc3-40c1-81ec-2a35449360aa" name="Default" comment="">
-      <change afterPath="E:/SparkAccumulatorsV2/SparkAccumulators.iml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.iml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/pom.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/algorithms/Long_Formatter.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/algorithms/MapOfLists.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFlatMapFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunction1.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunction2.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunctionBase.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingMapFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingPairFlatMapFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingPairFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingReduceFunction.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AccumulatorUtilities.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/CountedItem.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/GCTimeAccumulator.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/IAccumulator.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/ISparkAccumulators.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/LogRareEventsAccumulator.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MachineUseAccumulator.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryAndBinSize.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulator.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/DatasetTest.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/ElapsedTimer.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/GarbageCollectionTracker.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/MemoryTracker.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/MyBean.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/MyUnBean.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/distributed/spark/GenericSpark.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/distributed/spark/ScalaAdaptorsTest.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/distributed/spark/SparkTests.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/distributed/spark/accumulators/MachineAcculumatorTests.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/testing/GarbageCollectorTests.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/java/com/lordjoe/testing/MemoryTrackerTests.java" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/000000006774.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/000000006774.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/000000006774.peptide" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/000000008852.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/2Protein.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/CometAssignedBins.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/SmallSampleProteins.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/UsedSpectraComet.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/eg0.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/eg3.out.PeaksOnlyAnimeshselectedMGF20.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/eg3PeaksOnlyTop20.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/eg3Scan7.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/eg3_20.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/ego.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/egoParameters.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/10spectra_32.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/18ProteinMix.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/FragmentGeneratingTest.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/FullMapReduceTaxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/FullMapReduceTest.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/FullMapReduceXTandemScoring.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/OneSampleLog.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/SmallNested.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/TestLauncher.properties" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/TestLauncherLocal.properties" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/XTandemCalculation.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/bioml/TestBiomlFile.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/default_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/fasta/GoodRuns.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/fasta/default_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/fasta/tandem.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/fasta/taxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/fdr/TestPDR.properties" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/gpm_default_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/gpm_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/hadoop/myoControl.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/input2.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/input3.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/isb_default_input_kscore.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/isb_default_input_native.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/Halobacterium-20080205_TargDecoy.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/Halobacterium-20080205_TargDecoyFound.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/LT20100217SCX4_FILTERED.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/default_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/log1.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/output.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/parseError.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/tandem.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/tandem_database.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/tandem_database_large.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/tandem_database_medium.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/tandem_large.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/largeSample/taxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mgf/7962salivaryglandhealthycontrol.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mgf/GoodRuns.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/myoControl.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/myoControlSmall.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/myoglobin.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/10spectra_32.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/10spectra_32x32.mzML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/10spectra_64x32.mzML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/10spectra_64x32z.mzML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/10spectra_64z.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/mzml/2min.mzML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/sax/tiny1.mzML0.99.1.mzML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/small.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/default_input.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/myoControl.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/myoControlSmall.mzXML" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/myoglobin.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/or20080317_s_silac-lh_1-1_01short.mzxml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/output.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/small.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/tandem.params" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/taxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/smallSample/taxonomySmall.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/tandem_params.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/taxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/taxonomy2.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/taxonomy4.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/taxonomySmall.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/test_spectra.mgf" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/testing/tandem.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/testing/taxonomy.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/testing/xtandem_output.xml" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/testing/yeast_orfs_pruned.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/org/systemsbiology/xtandem/yeast_orfs_pruned.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/select_20.fasta" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/war_and_peace.txt" afterDir="false" />
-      <change afterPath="E:/SparkAccumulatorsV2/src/test/resources/war_and_peace_counts.txt" afterDir="false" />
+    <list default="true" id="5bb5ed13-fbc3-40c1-81ec-2a35449360aa" name="Default" comment="Running Spark 2.0">
+      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/ExampleWordCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Factor.txt" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/SparkAccumulators.iml" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/SparkAccumulators.iml" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.iml" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.iml" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.ipr" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.ipr" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.iws" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/SparkAccumulatorsV2.iws" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/pom.xml" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/pom.xml" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java" afterDir="false" />
+      <change beforePath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java" beforeDir="false" afterPath="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hydra spark.iws" beforeDir="false" afterPath="$PROJECT_DIR$/hydra spark.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hydra_spark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hydra_spark.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hydra_spark.iws" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/KeyValueObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/KeyValueObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/DatabaseUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/DatabaseUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/PeptideDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/PeptideDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/SimpleLoadTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/SimpleLoadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet/CometScoringAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet/CometScoringAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DatasetCometScanScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DatasetCometScanScorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/tandem/LibraryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/tandem/LibraryBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/StatisticalWordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/StatisticalWordCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/apache/spark/examples/WordsMapFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/apache/spark/examples/WordsMapFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/taxonomy/ParquetDatabaseTaxonomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/taxonomy/ParquetDatabaseTaxonomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -144,70 +53,140 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MemoryUseAccumulatorAndBinSize.java" pinned="false" current-in-tab="false">
-        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java">
+      <file leaf-file-name="BasicSparkAccumulators.java" pinned="false" current-in-tab="false">
+        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="218">
+              <caret line="139" selection-start-line="139" selection-end-line="139" />
               <folding>
-                <element signature="e#1609#1610#0" expanded="true" />
-                <element signature="e#1672#1673#0" expanded="true" />
+                <element signature="e#2515#2523#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkContextGetter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java">
+      <file leaf-file-name="StatisticalWordCount.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/StatisticalWordCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            <state relative-caret-position="126">
+              <caret line="70" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="70" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExampleSetAccumulator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleSetAccumulator.java">
+      <file leaf-file-name="JavaWordCount.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/spark/examples/JavaWordCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            <state relative-caret-position="141">
+              <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="77" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java">
+      <file leaf-file-name="AbstractLoggingFunction1.java" pinned="false" current-in-tab="false">
+        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunction1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2363">
-              <caret line="180" column="24" selection-start-line="180" selection-start-column="24" selection-end-line="180" selection-end-column="24" />
+            <state relative-caret-position="338">
+              <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+              <folding>
+                <element signature="e#3298#3299#0" expanded="true" />
+                <element signature="e#3333#3334#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExampleWordCount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java">
+      <file leaf-file-name="WordsMapFunction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/spark/examples/WordsMapFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2788">
-              <caret line="175" column="55" selection-start-line="175" selection-start-column="55" selection-end-line="175" selection-end-column="55" />
+            <state relative-caret-position="31">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#521#522#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HadoopUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="MemoryUseAccumulatorAndBinSize.java" pinned="false" current-in-tab="false">
+        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkTandemUtilitiesTests.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java">
+      <file leaf-file-name="ISparkAccumulators.java" pinned="false" current-in-tab="false">
+        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/ISparkAccumulators.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+            <state relative-caret-position="147">
+              <caret line="105" column="44" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractLoggingFunctionBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunctionBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+              <folding>
+                <element signature="e#3196#3197#0" expanded="true" />
+                <element signature="e#3231#3232#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleLoadTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/SimpleLoadTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSetTester.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>protein, cleavage N-terminal mass change</find>
+      <find>kryo</find>
+      <find>registerClasses</find>
+      <find>HydraKryoSerializer</find>
+      <find>Count</find>
+      <find>jar</find>
+      <find>Hydradeployer</find>
+      <find>AccumulatorV2</find>
+      <find>com.lordjoe.distributed.PathPrepend</find>
+      <find>provided</find>
+      <find>SuppressWarnings</find>
+      <find>sqlco</find>
+      <find>getCurrentSQLContext</find>
+      <find>getAccumulat</find>
+      <find>accumulators</find>
+      <find>TotalLetters</find>
+      <find>TotalLette</find>
+      <find>WordsMapFunction</find>
+      <find>createA</find>
+    </findStrings>
+    <dirStrings>
+      <dir>E:\SparkHydraV2\src\main\java\com\lordjoe\distributed\output</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -229,16 +208,52 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SimoneCommandLine.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java" />
+        <option value="$PROJECT_DIR$/data/SparkClusterEg3.properties" />
+        <option value="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/ExampleWordCount.java" />
+        <option value="$PROJECT_DIR$/data/SparkClusterSimo.properties" />
+        <option value="$PROJECT_DIR$/data/Factor.txt" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/DatabaseUtilities.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/tandem/LibraryBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DatasetCometScanScorer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/PeptideDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/taxonomy/ParquetDatabaseTaxonomy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java" />
+        <option value="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/KeyValueObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/StatisticalWordCount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/apache/spark/examples/WordsMapFunction.java" />
+        <option value="E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/SimpleLoadTest.java" />
       </list>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="177" />
-    <option name="y" value="110" />
-    <option name="width" value="1703" />
-    <option name="height" value="975" />
+    <option name="x" value="96" />
+    <option name="y" value="115" />
+    <option name="width" value="1640" />
+    <option name="height" value="948" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -246,15 +261,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="hydra_spark" type="b2602c69:ProjectViewProjectNode" />
               <item name="SparkHydraV2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hydra_spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SparkHydraV2" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hydra_spark" type="b2602c69:ProjectViewProjectNode" />
@@ -271,20 +288,32 @@
               <item name="hydra_spark" type="b2602c69:ProjectViewProjectNode" />
               <item name="SparkHydraV2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hydra_spark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SparkHydraV2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
     <property name="panda.monitored.classes" value="" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.48357525" />
+    <property name="settings.editor.selected.configurable" value="Scala Compiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -298,7 +327,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Eg3_20">
+  <component name="RunManager" selected="Application.SimpleLoadTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -322,6 +351,40 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
+    <configuration name="ExampleWordCount" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.lordjoe.testing.ExampleWordCount" />
+      <module name="hydra_spark" />
+      <option name="PROGRAM_PARAMETERS" value="Moby.txt" />
+      <option name="VM_PARAMETERS" value="-Xmx10g -Dlog4j.configuration=conf/log4j.properties" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/data" />
+    </configuration>
+    <configuration name="Jar Builder" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.lordjoe.distributed.hydra.HydraDeployer" />
+      <module name="hydra_spark" />
+      <option name="PROGRAM_PARAMETERS" value="HydraSparkBuilt.jar" />
+      <option name="VM_PARAMETERS" value="-Xmx10g -Dlog4j.configuration=conf/log4j.properties" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="Simone Eg3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.lordjoe.distributed.hydra.comet_spark.SparkCometScanScorer" />
+      <module name="hydra_spark" />
+      <option name="PROGRAM_PARAMETERS" value="SparkClusterSimo.properties input_searchGUIeg3.xml" />
+      <option name="VM_PARAMETERS" value="-Xmx10g -Dlog4j.configuration=conf/log4j.properties" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/data" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration name="SimpleLoadTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.lordjoe.distributed.hydra.SimpleLoadTest" />
+      <module name="hydra_spark" />
+      <option name="PROGRAM_PARAMETERS" value="SparkClusterSimo.properties input_searchGUIeg3.xml" />
+      <option name="VM_PARAMETERS" value="-Xmx10g -Dlog4j.configuration=conf/log4j.properties" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/data" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.lordjoe.distributed.hydra.comet_spark.DataSetCometScorer" />
       <module name="hydra_spark" />
@@ -334,6 +397,23 @@
       <module name="hydra_spark" />
       <option name="VM_PARAMETERS" value="-Xmx10g -Dlog4j.configuration=conf/log4j.properties" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/data" />
+    </configuration>
+    <configuration name="All in hydra_spark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hydra_spark" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -373,23 +453,33 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
     <list>
       <item itemvalue="Application.Eg3_20" />
+      <item itemvalue="Application.Simone Eg3" />
+      <item itemvalue="Application.SimpleLoadTest" />
+      <item itemvalue="Application.ExampleWordCount" />
+      <item itemvalue="Application.Jar Builder" />
       <item itemvalue="Application.Eg3_20  Search" />
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.All in hydra_spark" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in hydra_spark" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
     <option name="projectSyncType">
       <map>
         <entry key="E:/scalataire" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="intInjectionMapping">
+      <map>
+        <entry key="xml" value="XML" />
       </map>
     </option>
   </component>
@@ -406,142 +496,440 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_hydra_spark - 2018.06.18 at 14h 11m 30s.xml">
+      <configuration name="All in hydra_spark" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_hydra_spark - 2018.06.18 at 14h 14m 48s.xml">
+      <configuration name="All in hydra_spark" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_hydra_spark - 2018.06.18 at 14h 18m 34s.xml">
+      <configuration name="All in hydra_spark" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="183" y="57" width="1703" height="975" extended-state="0" />
-    <editor active="true" />
+    <frame x="96" y="115" width="1640" height="948" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="SBT Console" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.12253694" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Run with VisualVM" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24955542" />
-      <window_info anchor="bottom" id="JProfiler" order="7" />
-      <window_info anchor="bottom" id="Panda Executor" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" x="2075" y="297" width="1391" height="888" id="Debug" order="3" type="WINDOWED" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="SBT Console" order="7" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.4710947" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18288177" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="7" />
+      <window_info anchor="bottom" id="JProfiler" order="7" />
+      <window_info anchor="bottom" id="Panda Executor" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" x="2033" y="285" width="1687" height="728" id="Debug" order="3" type="WINDOWED" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="7" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3297619" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25134328" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Running Spark 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Running Spark 2.0" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet/CometScoringAlgorithm.java</url>
+          <line>108</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="12" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java">
+    <entry file="file://$PROJECT_DIR$/data/SparkClusterEg3SmallTest.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/DefaultSparkLocalCluster.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="782">
+          <caret line="46" column="72" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/spectrum/SparkSpectrumUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="96" column="76" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/HydraKryoSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="58" column="6" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HDFSAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7446">
+          <caret line="466" selection-start-line="466" selection-end-line="466" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkLocalCluster.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SimoneCommandLine.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="180" selection-start-column="180" selection-end-column="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet/CometScoringAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="88" column="56" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/HugePart1WithAndWithoutDatabase.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkCluster.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkClusterBiggish.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkClusterEg3.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/HydraDeployer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkDeployer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Factor.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/BinningData1000000.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="204">
+          <caret line="15" column="75" lean-forward="true" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/BinningData10000.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkLocalClusterEg3.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/hadoop/XTandemHadoopUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="299" column="23" selection-start-line="299" selection-start-column="23" selection-end-line="299" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/SparkClusterSimo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.2.0/spark-core_2.11-2.2.0.jar!/org/apache/spark/api/java/function/FlatMapFunction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.2.0/spark-core_2.11-2.2.0-sources.jar!/org/apache/spark/api/java/function/FlatMapFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="99" column="31" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/testing/ExampleWordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1672#1673#0" expanded="true" />
+            <element signature="e#4668#4676#0" expanded="true" />
+            <element signature="e#6732#6740#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-sql_2.11/2.2.0/spark-sql_2.11-2.2.0.jar!/org/apache/spark/sql/SQLContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        <state relative-caret-position="276">
+          <caret line="61" lean-forward="true" selection-start-line="54" selection-end-line="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleSetAccumulator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/DatabaseUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        <state relative-caret-position="72">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/tandem/LibraryBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="180" column="24" selection-start-line="180" selection-start-column="24" selection-end-line="180" selection-end-column="24" />
+        <state relative-caret-position="113">
+          <caret line="382" column="24" selection-start-line="382" selection-start-column="24" selection-end-line="382" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-sql_2.11/2.2.0/spark-sql_2.11-2.2.0-sources.jar!/org/apache/spark/sql/SparkSession.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2788">
-          <caret line="175" column="55" selection-start-line="175" selection-start-column="55" selection-end-line="175" selection-end-column="55" />
+        <state relative-caret-position="-234">
+          <caret line="470" column="6" selection-start-line="470" selection-start-column="6" selection-end-line="470" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="793" column="6" selection-start-line="793" selection-start-column="6" selection-end-line="793" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/database/PeptideDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="165" column="69" selection-start-line="165" selection-start-column="69" selection-end-line="165" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-sql_2.11/2.2.0/spark-sql_2.11-2.2.0-sources.jar!/org/apache/spark/sql/SQLContext.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="389" column="3" lean-forward="true" selection-start-line="389" selection-start-column="3" selection-end-line="389" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DatasetCometScanScorer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="772" column="8" selection-start-line="772" selection-start-column="8" selection-end-line="772" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/taxonomy/ParquetDatabaseTaxonomy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="181" column="50" selection-start-line="181" selection-start-column="50" selection-end-line="181" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-121">
+          <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="51">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
           <folding>
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1672#1673#0" expanded="true" />
+            <element signature="e#750#780#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkContextGetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleSetAccumulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="180" column="24" selection-start-line="180" selection-start-column="24" selection-end-line="180" selection-end-column="24" />
+        <state relative-caret-position="124">
+          <caret line="189" column="21" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
+          <folding>
+            <element signature="e#6108#6138#0" expanded="true" />
+            <element signature="e#13338#13339#0" expanded="true" />
+            <element signature="e#13391#13392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/ExampleWordCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2788">
-          <caret line="175" column="55" selection-start-line="175" selection-start-column="55" selection-end-line="175" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/systemsbiology/hadoop/HadoopUtilities.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/KeyValueObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/input/spark/SparkTandemUtilitiesTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#823#853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFlatMapFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunctionBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+          <folding>
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3231#3232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/AbstractLoggingFunction1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+          <folding>
+            <element signature="e#3298#3299#0" expanded="true" />
+            <element signature="e#3333#3334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/spark/examples/JavaWordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/wordcount/StatisticalWordCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="70" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="70" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/ISparkAccumulators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="105" column="44" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/MemoryUseAccumulatorAndBinSize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/SparkAccumulatorsV2/src/main/java/com/lordjoe/distributed/spark/accumulators/BasicSparkAccumulators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+          <folding>
+            <element signature="e#2515#2523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/spark/examples/WordsMapFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#521#522#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/SimpleLoadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="47" column="57" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -551,10 +939,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>hydra_spark:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -574,11 +964,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>ECLIPSE</last-edited>
+          <last-edited>scala-sdk-2.10.4 (3)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.48357525" />
               </list>
             </option>
           </splitter-proportions>
@@ -586,7 +976,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>Go 1.5.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -598,11 +988,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>hydra_spark</last-edited>
+          <last-edited>SparkAccumulatorsV2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.48357525" />
               </list>
             </option>
           </splitter-proportions>
@@ -626,7 +1016,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.48357525" />
               </list>
             </option>
           </splitter-proportions>

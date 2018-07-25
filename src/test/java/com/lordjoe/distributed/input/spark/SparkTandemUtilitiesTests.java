@@ -24,6 +24,7 @@ public class SparkTandemUtilitiesTests {
         throw new UnsupportedOperationException("Cannot understand extension " + path);
      }
 
+     @SuppressWarnings("unchecked")
     public static JavaPairRDD<String,String> parseAsMZXML(final String path, final JavaSparkContext ctx) {
         Class inputFormatClass = SparkSpectrumUtilities.MZXMLInputFormat.class;
          Class keyClass = String.class;

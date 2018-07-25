@@ -940,7 +940,7 @@
       <window_info id="Structure" order="0" sideWeight="0.50558215" side_tool="true" weight="0.30907878" />
       <window_info anchor="right" id="Ant Build" order="0" />
       <window_info id="UI Designer" order="0" />
-      <window_info anchor="bottom" x="2014" y="294" width="1562" height="848" id="Debug" order="0" type="FLOATING" weight="0.5101553" />
+      <window_info anchor="bottom" x="0" y="294" width="1562" height="848" id="Debug" order="0" type="FLOATING" weight="0.5101553" />
       <window_info anchor="bottom" id="TODO" order="0" />
       <window_info anchor="bottom" id="SBT Console" order="6" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49792776" weight="0.372176" />
@@ -1001,7 +1001,7 @@
       <window_info id="Structure" order="4" sideWeight="0.50558215" side_tool="true" weight="0.30907878" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.44040862" />
-      <window_info anchor="bottom" x="2092" y="353" width="1125" height="848" id="Debug" order="10" type="FLOATING" weight="0.5101553" />
+      <window_info anchor="bottom" x="0" y="353" width="1125" height="848" id="Debug" order="10" type="FLOATING" weight="0.5101553" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
