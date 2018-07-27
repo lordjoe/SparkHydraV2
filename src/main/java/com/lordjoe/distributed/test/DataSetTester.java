@@ -3,6 +3,7 @@ package com.lordjoe.distributed.test;
 import org.apache.log4j.*;
 import org.apache.spark.*;
 import org.apache.spark.api.java.*;
+import org.apache.spark.rdd.RDD;
 import org.apache.spark.sql.*;
 import scala.*;
 
@@ -45,7 +46,8 @@ public class DataSetTester {
 
         JavaRDD<DatasetTestObject> asRDD = currentContext.parallelize(holder);
         Encoder<DatasetTestObject> evidence = Encoders.bean(DatasetTestObject.class);
-        Dataset<DatasetTestObject> dataset = sqlCtx.createDataset(asRDD.rdd(), evidence);
+        RDD<DatasetTestObject> rdd = asRDD.rdd( );
+        Dataset<DatasetTestObject> dataset = sqlCtx.createDataset(rdd, evidence);
 
         DatasetTestObject[] collect = (DatasetTestObject[]) dataset.collect();
         for (int i = 0; i < collect.length; i++) {
@@ -57,7 +59,8 @@ public class DataSetTester {
 
         asRDD = currentContext.parallelize(holder);
         evidence = Encoders.kryo(DatasetTestObject.class);
-        dataset = sqlCtx.createDataset(asRDD.rdd(), evidence);
+        RDD<DatasetTestObject> rdd1 = asRDD.rdd();
+        dataset = sqlCtx.createDataset(rdd1, evidence);
 
         collect = (DatasetTestObject[]) dataset.collect();
         for (int i = 0; i < collect.length; i++) {

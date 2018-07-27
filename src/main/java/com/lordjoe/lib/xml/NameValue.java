@@ -13,6 +13,7 @@ public class NameValue  implements Serializable {
     public static final Class THIS_CLASS = NameValue.class;
    public static final Comparator VALUE_COMPARATOR = new ValueComparator();;
 
+   @SuppressWarnings("unchecked")
     public static class ValueComparator implements Comparator,Serializable
     {
         public int compare(Object o1, Object o2)
