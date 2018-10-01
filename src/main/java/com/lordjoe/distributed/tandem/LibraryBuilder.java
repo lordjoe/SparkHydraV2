@@ -81,8 +81,12 @@ public class LibraryBuilder implements Serializable {
         JavaPairRDD<String, String> parsed = SparkSpectrumUtilities.parseFastaFile(fasta, ctx);
 
         long[] proteinCount = new long[1];
+        boolean rememberDonmtPerforPersistAndCount =  SparkUtilities.DONT_PERFOM_PERSIST_AND_COUNT;
+        SparkUtilities.DONT_PERFOM_PERSIST_AND_COUNT = false;
         parsed = SparkUtilities.persistAndCount( parsed,proteinCount);
 
+        SparkUtilities.DONT_PERFOM_PERSIST_AND_COUNT =   rememberDonmtPerforPersistAndCount;
+        
         int requiresNumberPartitions = (int) (proteinCount[0] / MAX_PROTEINS_PER_PARTITION);
      //   SparkContextGetter.reguireDefaultNumberPartitions(requiresNumberPartitions);
 

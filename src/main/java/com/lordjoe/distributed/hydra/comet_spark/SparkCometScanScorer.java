@@ -782,7 +782,7 @@ public class SparkCometScanScorer {
         JavaRDD<IPolypeptide> allPeptides = readAllPeptides(sparkProperties, handler);
 
          long[] peptideCounts = new long[1];
-        allPeptides = SparkUtilities.persistAndCount("Total Peptides",allPeptides,peptideCounts);
+//        allPeptides = SparkUtilities.persistAndCount("Total Peptides",allPeptides,peptideCounts);
          long numberpeptides = peptideCounts[0];
 //
 //        System.out.println("Number Spectra " + Long_Formatter.format(numberSpectra) + " Number Peptides " +   Long_Formatter.format(numberpeptides));
@@ -891,6 +891,9 @@ public class SparkCometScanScorer {
         // JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<HashMap<String, IPolypeptide>>>> binP = keyedSpectra.cogroup(keyedPeptides);
         JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<IPolypeptide>>> binP = keyedSpectra.cogroup(keyedPeptides);
         //JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<CometTheoreticalBinnedSet>>> binP = keyedSpectra.cogroup(keyedTheoreticalPeptides);
+        keyedPeptides = null; // preserve memory
+        keyedSpectra = null; // preserve memory
+
 
 //        binP = SparkUtilities.persistAndCountPair("Ready to Score",binP,counts);
 //        long scoringCounts = counts[0];
@@ -903,6 +906,7 @@ public class SparkCometScanScorer {
         // NOTE this is where all the real work is done
         //JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPair(binP);
         JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPairPolypeptide(binP);
+        binP = null; // release memory
 
         // once we score we can go back to normal partitions
         //bestScores = bestScores.repartition(SparkUtilities.getDefaultNumberPartitions());
@@ -934,6 +938,7 @@ public class SparkCometScanScorer {
 
         if (isDebuggingCountMade())
             bestScores = SparkUtilities.persistAndCount("Best Scores", bestScores);
+        bestScores = null; // release memory
 
         timer.showElapsed("built best scores", System.err);
         XTandemMain application = scoringApplication;
@@ -949,6 +954,7 @@ public class SparkCometScanScorer {
 
         int numberScores = consolidator.writeScores(cometBestScores);
         System.out.println("Total Scans Scored " + numberScores);
+        cometBestScores = null; // release memory
 
         totalTime.showElapsed("Finished Scoring");
 

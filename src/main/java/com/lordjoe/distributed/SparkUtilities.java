@@ -36,12 +36,14 @@ import java.net.*;
 import java.util.*;
 
 /**
- * com.lordjoe.distributed.SpareUtilities
+ * com.lordjoe.distributed.SparkUtilities
  * A very useful class representing a number of static functions useful in Spark
  * User: Steve
  * Date: 8/28/2014
  */
 public class SparkUtilities implements Serializable {
+
+    public static boolean DONT_PERFOM_PERSIST_AND_COUNT = true;
 
     public static final String DO_DEBUGGING_CONFIG_PROPERTY = "com.lordjoe.distributed.do_debugging_count";
   //  private transient static LoggerFactoryBinder FORCE_LOAD = null;
@@ -606,7 +608,7 @@ public class SparkUtilities implements Serializable {
             sparkProperties.load(new FileReader(f));  // read spark properties
         }
         catch (IOException e) {
-            throw new RuntimeException(" bad spark properties file " + fileName);
+            throw new RuntimeException(" bad spark properties file " + fileName + " error:" + e.getMessage());
 
         }
     }
@@ -1200,6 +1202,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <V> JavaRDD<V> persistAndCount(@Nonnull final String message, @Nonnull final JavaRDD<V> inp, long[] countRef) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+             return inp ;
         JavaRDD<V> ret = persist(inp);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1215,6 +1219,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K,V> JavaPairRDD<K,V> persistAndCount(@Nonnull final String message, @Nonnull final JavaPairRDD<K,V> inp, long[] countRef) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaPairRDD<K,V> ret = persist(inp);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1230,6 +1236,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K,V> JavaPairRDD<K,V> persistAndCount(  @Nonnull final JavaPairRDD<K,V> inp, long[] countRef) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaPairRDD<K,V> ret = persist(inp);
         long count = ret.count();
          countRef[0] = count;
@@ -1261,6 +1269,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K, V> JavaPairRDD<K, V> persistAndCountPair(@Nonnull final String message, @Nonnull final JavaPairRDD<K, V> inp, long[] countRef) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaPairRDD<K, V> ret = persist(inp);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1277,6 +1287,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K, V> JavaPairRDD<K, V> persistAndCountPair(@Nonnull final String message, @Nonnull final JavaPairRDD<K, V> inp, long[] countRef,StorageLevel storage) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaPairRDD<K, V> ret = persist(inp,storage);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1294,6 +1306,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <V> JavaRDD<V> persistAndCount(@Nonnull final String message, @Nonnull final JavaRDD<V> inp) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaRDD<V> ret = persist(inp);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1308,6 +1322,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <V> JavaRDD<V> persistAndCount(@Nonnull final String message, @Nonnull final JavaRDD<V> inp,StorageLevel storage) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaRDD<V> ret = persist(inp, storage);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
@@ -1324,6 +1340,8 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K extends Serializable, V extends Serializable> JavaPairRDD<K, V> persistAndCount(@Nonnull final String message, @Nonnull final JavaPairRDD<K, V> inp) {
+        if(DONT_PERFOM_PERSIST_AND_COUNT)
+            return inp ;
         JavaPairRDD<K, V> ret = persist(inp);
         long count = ret.count();
         System.err.println(message + " has " + Long_Formatter.format(count));
