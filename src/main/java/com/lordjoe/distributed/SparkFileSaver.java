@@ -1,5 +1,6 @@
 package com.lordjoe.distributed;
 
+import com.lordjoe.utilities.FileUtilities;
 import org.apache.hadoop.conf.*;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.*;
@@ -51,7 +52,8 @@ public class SparkFileSaver {
         //  org.apache.hadoop.mapred.FileAlreadyExistsException
         HadoopUtilities.expunge(tempPath, SparkUtilities.getHadoopFileSystem());
 
-        data.saveAsTextFile(tempPath.toString());
+        if(!FileUtilities.osIsWindows())
+            data.saveAsTextFile(tempPath.toString());
 
         Configuration conf = SparkUtilities.getHadoopConfiguration();
         FileSystem srcFS = SparkUtilities.getHadoopFileSystem();

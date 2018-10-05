@@ -3257,7 +3257,7 @@ public abstract class FileUtilities {
             () {
         if (gOSIsWindows == null) {
             String osName = System.getProperty("os.name").toLowerCase();
-            gOSIsWindows = Boolean.valueOf(osName.indexOf("windows") == -1);
+            gOSIsWindows = Boolean.valueOf(osName.indexOf("windows") != -1);
         }
         return (gOSIsWindows.booleanValue());
     }

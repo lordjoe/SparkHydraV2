@@ -940,7 +940,7 @@
       <window_info id="Structure" order="0" sideWeight="0.50558215" side_tool="true" weight="0.30907878" />
       <window_info anchor="right" id="Ant Build" order="0" />
       <window_info id="UI Designer" order="0" />
-      <window_info anchor="bottom" x="0" y="294" width="1562" height="848" id="Debug" order="0" type="FLOATING" weight="0.5101553" />
+      <window_info anchor="bottom" x="0" y="0" width="600" height600" id="Debug" order="0" type="FLOATING" weight="0.5101553" />
       <window_info anchor="bottom" id="TODO" order="0" />
       <window_info anchor="bottom" id="SBT Console" order="6" />
       <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49792776" weight="0.372176" />

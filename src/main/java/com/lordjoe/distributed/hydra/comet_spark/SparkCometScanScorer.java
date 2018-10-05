@@ -35,6 +35,9 @@ import java.util.*;
  * Date: 10/7/2014
  */
 public class SparkCometScanScorer {
+    public static final boolean STOP_AFTER_SCORE = false;
+    public static final boolean STOP_AFTER_COMET_SCORE = false;
+    public static final boolean STOP_AFTER_COMBINE_SCORE = false;
 
 
 
@@ -728,6 +731,9 @@ public class SparkCometScanScorer {
         CometScoringHandler handler = buildCometScoringHandler(args[TANDEM_CONFIG_INDEX]);
 
         XTandemMain scoringApplication = handler.getApplication();
+
+ 
+
         setDebuggingCountMade(scoringApplication.getBooleanParameter(SparkUtilities.DO_DEBUGGING_CONFIG_PROPERTY, false));
         CometScoringAlgorithm comet = (CometScoringAlgorithm) scoringApplication.getAlgorithms()[0];
 
@@ -811,6 +817,9 @@ public class SparkCometScanScorer {
         // Assign bins to spectra
         JavaPairRDD<BinChargeKey, CometScoredScan> keyedSpectra = handler.mapMeasuredSpectrumToKeys(cometSpectraToScore);
 
+        cometSpectraToScore.unpersist(); // save memory
+        cometSpectraToScore= null; // save memory
+
         keyedSpectra = SparkUtilities.persist(keyedSpectra);
 
         // fine all bins we are scoring - this allows us to filter peptides
@@ -891,8 +900,16 @@ public class SparkCometScanScorer {
         // JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<HashMap<String, IPolypeptide>>>> binP = keyedSpectra.cogroup(keyedPeptides);
         JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<IPolypeptide>>> binP = keyedSpectra.cogroup(keyedPeptides);
         //JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<CometTheoreticalBinnedSet>>> binP = keyedSpectra.cogroup(keyedTheoreticalPeptides);
-        keyedPeptides = null; // preserve memory
+        keyedPeptides.unpersist(); // preserve memory
+        keyedPeptides = null;
+        keyedSpectra.unpersist(); // preserve memory
         keyedSpectra = null; // preserve memory
+
+        // Test intermediate stop
+        if(STOP_AFTER_SCORE) {
+            System.out.println("Stopping after Score");
+            return;
+        }
 
 
 //        binP = SparkUtilities.persistAndCountPair("Ready to Score",binP,counts);
@@ -906,7 +923,14 @@ public class SparkCometScanScorer {
         // NOTE this is where all the real work is done
         //JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPair(binP);
         JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPairPolypeptide(binP);
+        binP.unpersist(); // preserve memory
         binP = null; // release memory
+
+        // Test intermediate stop
+        if(STOP_AFTER_COMET_SCORE) {
+            System.out.println("Stopping after Comet Score");
+            return;
+        }
 
         // once we score we can go back to normal partitions
         //bestScores = bestScores.repartition(SparkUtilities.getDefaultNumberPartitions());
@@ -917,6 +941,12 @@ public class SparkCometScanScorer {
 
         // combine scores from same scan
         JavaRDD<? extends IScoredScan> cometBestScores = handler.combineScanScores(bestScores);
+
+        // Test intermediate stop
+        if(STOP_AFTER_COMBINE_SCORE) {
+            System.out.println("Stopping after Combine Score");
+            return;
+        }
 
 //        if(false) {
 //            cometBestScores = SparkUtilities.persist(cometBestScores);
@@ -938,6 +968,7 @@ public class SparkCometScanScorer {
 
         if (isDebuggingCountMade())
             bestScores = SparkUtilities.persistAndCount("Best Scores", bestScores);
+        bestScores.unpersist();
         bestScores = null; // release memory
 
         timer.showElapsed("built best scores", System.err);
@@ -954,6 +985,7 @@ public class SparkCometScanScorer {
 
         int numberScores = consolidator.writeScores(cometBestScores);
         System.out.println("Total Scans Scored " + numberScores);
+        cometBestScores.unpersist(); // release memory
         cometBestScores = null; // release memory
 
         totalTime.showElapsed("Finished Scoring");
@@ -969,6 +1001,8 @@ public class SparkCometScanScorer {
       * show data used in intellignet binning
       */
      public static void showBinningData(final long pTotalSpectra,MapOfLists<Integer, BinChargeKey> keys,Map<BinChargeKey, Long> usedBinsMap,int pMaxSpectraInBin,int pMaxKeysInBin ) {
+         if(FileUtilities.osIsWindows())    // Slewis this will not work on windows
+             return;
           PrintWriter savedAccumulators = SparkUtilities.getHadoopPrintWriter("BinningData.txt");
           savedAccumulators.println("TotalSpectra " + Long_Formatter.format(pTotalSpectra) + "\tMaxSpectraInBin " + pMaxSpectraInBin + "\tMaxKeysInBin " + pMaxKeysInBin);
          List<Integer>   keysSorted = new ArrayList<Integer>(keys.keySet());
@@ -1205,6 +1239,7 @@ public class SparkCometScanScorer {
         Logger rootLogger = Logger.getRootLogger();
         rootLogger.setLevel(Level.WARN);
         AccumulatorUtilities.setFunctionsLoggedByDefault(false);
+
 
 
         //  pairedScoring(args);
