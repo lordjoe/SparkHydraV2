@@ -86,8 +86,9 @@ public class LibraryBuilder implements Serializable {
         parsed = SparkUtilities.persistAndCount( parsed,proteinCount);
 
         SparkUtilities.DONT_PERFOM_PERSIST_AND_COUNT =   rememberDonmtPerforPersistAndCount;
-        
-        int requiresNumberPartitions = (int) (proteinCount[0] / MAX_PROTEINS_PER_PARTITION);
+
+        long proteins = proteinCount[0];
+        int requiresNumberPartitions = 1 +  (int)(proteins / MAX_PROTEINS_PER_PARTITION);
      //   SparkContextGetter.reguireDefaultNumberPartitions(requiresNumberPartitions);
 
         parsed = SparkUtilities.repartitionIfNeeded(parsed,requiresNumberPartitions,1.0);

@@ -1001,9 +1001,7 @@ public class SparkCometScanScorer {
       * show data used in intellignet binning
       */
      public static void showBinningData(final long pTotalSpectra,MapOfLists<Integer, BinChargeKey> keys,Map<BinChargeKey, Long> usedBinsMap,int pMaxSpectraInBin,int pMaxKeysInBin ) {
-         if(FileUtilities.osIsWindows())    // Slewis this will not work on windows
-             return;
-          PrintWriter savedAccumulators = SparkUtilities.getHadoopPrintWriter("BinningData.txt");
+              PrintWriter savedAccumulators = SparkUtilities.getHadoopPrintWriter("BinningData.txt");
           savedAccumulators.println("TotalSpectra " + Long_Formatter.format(pTotalSpectra) + "\tMaxSpectraInBin " + pMaxSpectraInBin + "\tMaxKeysInBin " + pMaxKeysInBin);
          List<Integer>   keysSorted = new ArrayList<Integer>(keys.keySet());
          Collections.sort(keysSorted);

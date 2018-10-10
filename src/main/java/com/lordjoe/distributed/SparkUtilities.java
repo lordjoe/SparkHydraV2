@@ -8,6 +8,7 @@ import com.lordjoe.distributed.spark.*;
 import com.lordjoe.distributed.spark.accumulators.*;
 import com.lordjoe.distributed.spark.accumulators.CountedItem;
 import com.lordjoe.distributed.test.*;
+import com.lordjoe.utilities.FileUtilities;
 import org.apache.hadoop.conf.*;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.*;
@@ -231,9 +232,20 @@ public class SparkUtilities implements Serializable {
     public static
     @Nonnull
     OutputStream getHadoopOutputStream(@Nonnull String fileName) {
-        FileSystem fs = getHadoopFileSystem();
         Path path = XTandemHadoopUtilities.getRelativePath(fileName);
-        try {
+        if(FileUtilities.osIsWindows())  {
+            try {
+                File f = new File(path.toString());
+                f.delete();
+                return new FileOutputStream(f);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+
+            }
+        }
+
+        FileSystem fs = getHadoopFileSystem();
+         try {
             boolean recursive = false;
             fs.delete(path, false);
             return fs.create(path);
@@ -1468,6 +1480,7 @@ public class SparkUtilities implements Serializable {
      */
     @Nonnull
     public static <K, V> JavaPairRDD<K, V> repartitionIfNeeded(@Nonnull final JavaPairRDD<K, V> inp, int numberPartitions, double tolerance) {
+        numberPartitions = Math.max(1,numberPartitions);
         int currentPartitions = inp.partitions().size();
         if (numberPartitions == currentPartitions)
             return inp;

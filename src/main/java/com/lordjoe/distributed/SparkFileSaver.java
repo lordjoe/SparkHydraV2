@@ -52,8 +52,7 @@ public class SparkFileSaver {
         //  org.apache.hadoop.mapred.FileAlreadyExistsException
         HadoopUtilities.expunge(tempPath, SparkUtilities.getHadoopFileSystem());
 
-        if(!FileUtilities.osIsWindows())
-            data.saveAsTextFile(tempPath.toString());
+        data.saveAsTextFile(tempPath.toString());
 
         Configuration conf = SparkUtilities.getHadoopConfiguration();
         FileSystem srcFS = SparkUtilities.getHadoopFileSystem();
