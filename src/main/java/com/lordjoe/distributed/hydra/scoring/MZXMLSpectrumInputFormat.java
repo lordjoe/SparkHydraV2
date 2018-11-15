@@ -208,7 +208,7 @@ public class MZXMLSpectrumInputFormat extends FileInputFormat<String, IMeasuredS
         }
         else {
             long prev = idToLocation.get(id);
-            System.out.println(id + " " + prev + " -> " + location);
+     //       System.out.println(id + " " + prev + " -> " + location);
         }
     }
 

@@ -11,6 +11,7 @@ import org.systemsbiology.xtandem.peptide.IPolypeptide;
  */
 public class SpectrumHit implements IEquivalent<SpectrumHit> {
     public final String id;
+    private String proteinId;
     public final int hit_Rank;
     public final double hypderscore;
     public final IPolypeptide peptide;
@@ -20,6 +21,14 @@ public class SpectrumHit implements IEquivalent<SpectrumHit> {
         hypderscore = pHypderscore;
         hit_Rank = pRank;
         peptide = pPeptide;
+    }
+
+    public String getProteinId() {
+        return proteinId;
+    }
+
+    public void setProteinId(String proteinId) {
+        this.proteinId = proteinId;
     }
 
     @Override

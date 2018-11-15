@@ -1211,19 +1211,63 @@ public class XTandemUtilities {
      * @return !null key value set
      */
     public static Map<String, String> readNotes(InputStream is, String url) {
-        DelegatingSaxHandler handler = new DelegatingSaxHandler();
-        final BiomlHandler handler1 = new BiomlHandler(handler, url);
-        handler.pushCurrentHandler(handler1);
-        handler.parseDocument(is);
+        if(url.endsWith(".xml")) {
+            DelegatingSaxHandler handler = new DelegatingSaxHandler();
+            final BiomlHandler handler1 = new BiomlHandler(handler, url);
+            handler.pushCurrentHandler(handler1);
+            handler.parseDocument(is);
 
-        if (handler1 instanceof AbstractXTandemElementSaxHandler) {
-            AbstractXTandemElementSaxHandler handlerx = (AbstractXTandemElementSaxHandler) handler1;
-            Map<String, String> notes = handlerx.getNotes();
-            return notes;
+            if (handler1 instanceof AbstractXTandemElementSaxHandler) {
+                AbstractXTandemElementSaxHandler handlerx = (AbstractXTandemElementSaxHandler) handler1;
+                Map<String, String> notes = handlerx.getNotes();
+                return notes;
 
+            }
         }
-        throw new UnsupportedOperationException("Fix This"); // ToDo
+        if(url.endsWith(".params")) {
+            Properties pps = new Properties();
+            try {
+                pps.load(is);
+               return remapProperties(pps);
+             } catch (IOException e) {
+                throw new RuntimeException(e);
 
+            }
+        }
+
+         throw new UnsupportedOperationException("Fix This"); // ToDo
+
+    }
+
+    private static Map<String, String> remapProperties(Properties pps) {
+        Map<String, String> ret = new HashMap<String, String>();
+        for (Object k : pps.keySet()) {
+            String k1 = (String) k;
+            String property = pps.getProperty(k1);
+            String name = remapNames(k1,property,ret);
+
+            ret.put(name, property) ;
+        }
+        return ret;
+    }
+
+    private static String remapNames(String name,String value,Map<String, String> properties) {
+        if("fragment_bin_tol".equals(name))  return "comet.fragment_bin_tol";
+        if("fragment_bin_offset".equals(name)) {
+            properties.put("protein, cleavage N-terminal mass change","1.007276466");   // todo FIX
+            return "comet.fragment_bin_offset";
+        }
+        if("peptide_mass_tolerance".equals(name))  return "comet.mass_tolerance";
+        if("max_fragment_charge".equals(name))  return "comet.max_fragment_charge";
+        if("use_B_ions".equals(name))  {
+            properties.put("scoring, b ions" ,"yes") ;
+            return name;
+        }
+        if("use_Y_ions".equals(name))  {
+            properties.put("scoring, y ions" ,"yes") ;
+            return name;
+        }
+        return name;
     }
 
 //

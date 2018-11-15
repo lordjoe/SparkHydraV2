@@ -44,7 +44,7 @@ import java.util.*;
  */
 public class SparkUtilities implements Serializable {
 
-    public static boolean DONT_PERFOM_PERSIST_AND_COUNT = true;
+    public static boolean DONT_PERFOM_PERSIST_AND_COUNT = false;
 
     public static final String DO_DEBUGGING_CONFIG_PROPERTY = "com.lordjoe.distributed.do_debugging_count";
   //  private transient static LoggerFactoryBinder FORCE_LOAD = null;

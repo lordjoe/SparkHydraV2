@@ -224,7 +224,14 @@ public class HydraKryoSerializer implements KryoRegistrator, Serializable {
         doRegistration(kryo, "com.lordjoe.distributed.spark.accumulators.MemoryUseAccumulator");
 
         doRegistration(kryo, "org.apache.spark.util.LongAccumulator");
-        doRegistration(kryo, "org.apache.spark.util.LongAccumulator");
+        doRegistration(kryo, "com.lordjoe.comet.SparkCometCaller");
+        doRegistration(kryo, "com.lordjoe.comet.CometRunner");
+        doRegistration(kryo, "com.lordjoe.comet.CometScoringFunction");
+        doRegistration(kryo, "com.lordjoe.comet.SparkCometCaller");
+        doRegistration(kryo, "com.lordjoe.comet.PepxmlParsingFunction");
+        doRegistration(kryo, "com.lordjoe.comet.MZXMLFileReader");
+        doRegistration(kryo, "com.lordjoe.comet.MZXMLFile");
+        doRegistration(kryo, "com.lordjoe.comet.MSConvertRunner");
 
     }
 

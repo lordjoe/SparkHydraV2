@@ -28,7 +28,7 @@ public class CometParameterTests {
     }
 
     // 18-Mar-2016 commented out for failure SLewis
-  //  @Test
+    @Test
     public void testCometEg0() throws Exception {
         XTandemMain.setShowParameters(false);  // I do not want to see parameters
 

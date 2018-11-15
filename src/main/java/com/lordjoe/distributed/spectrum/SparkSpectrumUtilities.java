@@ -5,6 +5,7 @@ import com.lordjoe.distributed.hydra.comet_spark.*;
 import com.lordjoe.distributed.hydra.scoring.*;
 import com.lordjoe.distributed.input.*;
 import com.lordjoe.distributed.spark.accumulators.*;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.spark.api.java.*;
 import org.systemsbiology.xtandem.*;
@@ -57,6 +58,25 @@ public class SparkSpectrumUtilities {
 
     }
 
+    public static JavaPairRDD<String,String> partitionFastaFile(@Nonnull final String path, JavaSparkContext ctx, int proteinsPerGroup) {
+        Configuration conf = new  Configuration(ctx.hadoopConfiguration());
+        conf.setInt("proteinsPerGroup",proteinsPerGroup);
+        conf.set("path",path);
+        Class inputFormatClass = MultiFastaInputFormat.class;
+        Class keyClass = String.class;
+        Class valueClass = String.class;
+
+        return ctx.newAPIHadoopFile(
+                path,
+                inputFormatClass,
+                keyClass,
+                valueClass,
+                conf
+
+                );
+
+    }
+
 
     public static class MZXMLInputFormat extends XMLTagInputFormat {
         public MZXMLInputFormat() {
@@ -103,6 +123,29 @@ public class SparkSpectrumUtilities {
         );
          return parsed;
     }
+
+
+    @Nonnull
+    public static JavaPairRDD<String, String> partitionAsMZXML(@Nonnull final String path, @Nonnull final JavaSparkContext ctx,
+                                                               XTandemMain application,int spectraToHandle,
+                                                               String fileHeader  ) {
+        Configuration conf = new  Configuration(SparkUtilities.getHadoopConfiguration());
+        conf.setInt("spectra",spectraToHandle);
+        conf.set("fileHeader",fileHeader);
+        Class inputFormatClass = MultiMZXMLScanInputFormat.class;
+        Class keyClass = String.class;
+        Class valueClass = String.class;
+
+        JavaPairRDD<String, String> parsed = ctx.newAPIHadoopFile(
+                path,
+                inputFormatClass,
+                keyClass,
+                valueClass,
+                conf
+        );
+        return parsed;
+    }
+
 
 //    @Nonnull
 //     public static JavaPairRDD<String, IMeasuredSpectrum> parseAsMZXMLOLD_CODE(@Nonnull final String path, @Nonnull final JavaSparkContext ctx,XTandemMain application) {

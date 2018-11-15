@@ -66,7 +66,7 @@ public class CometScoredScan implements IScoredScan, IAddable<IScoredScan>, IMea
         }
         double mass = m_Raw.getPrecursorMass();    // todo is this peptide or
         // changed to look at observed peaks
-        mass = ((RawPeptideScan) m_Raw).getHighMz();
+       // mass = ((CometScoredScan) m_Raw).();
         maxArraySize = alg.asBin(mass + 100); // ((int) ((mass + 100) / getBinTolerance()); //  pScoring->_spectrumInfoInternal.iArraySize
         //this.setAlgorithm(alg);
         // we keep the data locally

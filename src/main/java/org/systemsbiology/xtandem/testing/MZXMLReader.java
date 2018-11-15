@@ -75,7 +75,7 @@ public class MZXMLReader {
          return ret;
     }
 
-    private static void handleLocalFile(final String pArg) throws IOException {
+    public static void handleLocalFile(final String pArg) throws IOException {
         File indir = new File(pArg);
         if (indir.isDirectory()) {
             File[] files = indir.listFiles();
@@ -92,7 +92,7 @@ public class MZXMLReader {
     }
 
 
-    private static void handleHDFSFile(final String pArg) throws IOException {
+    public static void handleHDFSFile(final String pArg) throws IOException {
         IHDFSFileSystem fs = HDFSAccessor.getFileSystem();
 
         if (fs.isDirectory(pArg)) {

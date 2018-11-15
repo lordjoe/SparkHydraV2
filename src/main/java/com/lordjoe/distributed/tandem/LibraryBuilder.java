@@ -99,6 +99,28 @@ public class LibraryBuilder implements Serializable {
         return parsed.map(new ParsedProteinToProtein(fastaBase  + ".fasta"));
     }
 
+    /**
+     * generate an RDD of proteins from the database
+     *
+     * @return
+     */
+    public JavaPairRDD<String,String> divideFastaFile(JavaSparkContext ctx,int proteinsPerGroup) {
+        //      JavaSparkContext ctx = getJavaContext();
+
+
+        XTandemMain application1 = getApplication();
+        String fastaBase = application1.getDatabaseName();
+        Path defaultPath = XTandemHadoopUtilities.getDefaultPath();
+        String fasta = defaultPath.toString() + "/" + fastaBase + ".fasta";
+
+        // this is a list of proteins the key is the annotation line
+        // the value is the sequence
+        JavaPairRDD<String,String> parsed = SparkSpectrumUtilities.partitionFastaFile(fasta, ctx,proteinsPerGroup);
+
+         return parsed;
+    }
+
+
 
     public XTandemMain getApplication() {
         return application;
@@ -162,12 +184,10 @@ public class LibraryBuilder implements Serializable {
 
         if(  SparkCometScanScorer.isDebuggingCountMade()) {
             long[] answer = new long[1];
-            digested = SparkUtilities.persistAndCount("Digested Proteins", digested, answer);
-        }
+            digested = SparkUtilities.persistAndCount("Digested Proteins - peptides", digested, answer);
+         }
 
               // the rest of the code combines identical peptides - there are not many of these and we will ignore them fot now todo handle identical peptides
-        if(true)
-            return digested;
 
           digested = digested.distinct();
 

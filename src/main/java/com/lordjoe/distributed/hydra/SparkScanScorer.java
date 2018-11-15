@@ -175,6 +175,8 @@ public class SparkScanScorer {
         return keyedPeptides;
     }
 
+
+
     public static JavaRDD<IMeasuredSpectrum> getMeasuredSpectra(final ElapsedTimer pTimer, final Properties pSparkProperties, final String pSpectra, XTandemMain application) {
         int max_spectra = SPECTRA_TO_SCORE;
         if (pSparkProperties.containsKey(MAX_SPECTRA_PROPERTY)) {

@@ -114,7 +114,7 @@ public class CometScoringAlgorithm extends AbstractScoringAlgorithm {
     }
 
     /**
-     * IMPORTANT the real word is done here
+     * IMPORTANT the real work is done here
      *
      * @param pScoring
      * @param pTs
@@ -421,6 +421,15 @@ public class CometScoringAlgorithm extends AbstractScoringAlgorithm {
         return ret;
     }
 
+    /**
+     * actually perform cross correlation - this is important the scoring work is done here
+     * @param pTs
+     * @param scorerData
+     * @param pCounter
+     * @param scan
+     * @param used
+     * @return
+     */
     public double doXCorr(final CometTheoreticalBinnedSet pTs,
                           final Scorer scorerData,
                           final IonUseCounter pCounter,

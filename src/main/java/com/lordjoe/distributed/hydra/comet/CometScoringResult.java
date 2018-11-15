@@ -17,7 +17,7 @@ import java.util.*;
   */
 public class CometScoringResult implements IScoredScan, IAddable<IScoredScan>, IMeasuredSpectrum {
 
-    public static final int MAX_RETURNED_MATCHES = 2;
+    public static final int MAX_RETURNED_MATCHES = 4;
 
     private String m_id;
     private IMeasuredSpectrum m_Raw;

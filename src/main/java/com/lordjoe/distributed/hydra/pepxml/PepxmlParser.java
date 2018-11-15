@@ -206,6 +206,7 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
 
         IPolypeptide peptide1 = peptide.getPeptide();
         SpectrumHit hit = new SpectrumHit(id, hyperScoreValue, rank, peptide1);
+        hit.setProteinId(proteinId);
         query.addSpectrumHit(hit);
 
 
@@ -317,13 +318,31 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        List<PepxmlParser> items = new ArrayList<PepxmlParser>();
+    public static Set<String> getHitProteins(PepxmlParser pp) {
+        Set<String> ret = new HashSet<>();
+        for (SpectrumQuery value : pp.queries.values()) {
+            for (SpectrumHit hit : value.getHits()) {
+                String prot = hit.getProteinId();
+                if(prot != null)
+                    ret.add(getProteinId(prot));
+            }
+        }
+        return ret;
+    }
+
+    private static String getProteinId(String prot) {
+        String ret = prot.substring(prot.indexOf("|") + 1) ;
+        ret = ret.substring(0,ret.indexOf("|"));
+        return ret;
+    }
+    private static void comparePepXlm(String[] args) {
+        List<PepxmlParser> items = new ArrayList<PepxmlParser>( );
         for (int i = 0; i < args.length; i++) {
             String arg = args[i];
             PepxmlParser pp = new PepxmlParser(new File(arg));
             items.add(pp);
         }
+
 
         if(args.length > 1)    {
             PepxmlParser pp1 = items.get(0);
@@ -335,8 +354,69 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
             }
             System.out.println("Files are the same");
         }
+    }
+    private static void extractProteins(String[] args) throws Exception {
+        Set<String> proteins = getProteinsFromPepXML(args[0]);
+        proteins.add("Q6GZX3"); // make sure one early
+        LineNumberReader rdr = new LineNumberReader(new FileReader(args[1])) ;
+        PrintWriter out = new PrintWriter(new FileWriter(new File(args[2])));
+        writeProteins(rdr,proteins,out);
+    }
+
+    private static void writeProteins(LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws Exception {
+        String line = rdr.readLine();
+        while(line != null)  {
+            if(line.startsWith(">"))   {
+                line = handleProtein(line,rdr,proteins,out);
+            }
+            else {
+                line = rdr.readLine();
+            }
+        }
+        out.close();
+    }
+
+    private static String handleProtein(String line, LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws Exception {
+        boolean useProtein = isUseProtein(line,proteins);
+        String firstLine = line;
+        line = rdr.readLine();
+        StringBuilder sb = new StringBuilder();
+
+          while(line != null) {
+             sb.append(line);
+             sb.append("\n");
+              line = rdr.readLine();
+              if(line != null && line.startsWith(">"))
+                  break;
+        }
+        if(useProtein)  {
+            out.println(firstLine);
+            out.print(sb.toString());
+        }
+
+        return line;
 
     }
+
+    private static boolean isUseProtein(String line, Set<String> proteins) {
+        for (String protein : proteins) {
+              if(line.contains("|" + protein + "|"))
+                  return true;
+        }
+        return false;
+    }
+
+    private static Set<String> getProteinsFromPepXML(String arg) {
+        PepxmlParser pp = new PepxmlParser(new File(arg));
+        return getHitProteins(pp);
+    }
+
+
+    public static void main(String[] args) throws Exception {
+        extractProteins(args);
+
+    }
+
 
 
 }

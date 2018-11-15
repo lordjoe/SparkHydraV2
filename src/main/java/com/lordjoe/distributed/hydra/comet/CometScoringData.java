@@ -61,7 +61,7 @@ public class CometScoringData {
      */
     public static CometScoringData getScoringData() {
         if(true)
-        throw new UnsupportedOperationException("fix this"); // todo add code
+             throw new UnsupportedOperationException("fix this"); // todo add code
 
         synchronized (CometScoringData.class) {
             if (gPreallocatedData == null) {

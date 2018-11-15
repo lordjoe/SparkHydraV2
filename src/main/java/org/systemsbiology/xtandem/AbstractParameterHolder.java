@@ -61,6 +61,11 @@ public abstract class AbstractParameterHolder implements ISetableParameterHolder
       {
           m_UsedKeys.add(key);
           String s = m_Parameters.get(key);
+          if(s == null)
+              return null;
+          int hashIndex = s.indexOf("#");
+          if(hashIndex > 0)
+              s = s.substring(0,hashIndex);
           if(s != null)
               s = s.trim();
           return s;

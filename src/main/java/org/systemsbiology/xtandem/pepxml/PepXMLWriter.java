@@ -388,11 +388,12 @@ public class PepXMLWriter implements Serializable {
         if (spectralMatches.length == 0)
             return;
         writeScanHeader(scan, out);
+        ISpectralMatch topMatch = spectralMatches[0];
         switch (spectralMatches.length) {
             case 0:
                 return;
             case 1:
-                printMatch(scan, spectralMatches[0], null,  out);
+                printMatch(scan, topMatch, null,topMatch,  out);
                 break;
 
             default:
@@ -405,13 +406,14 @@ public class PepXMLWriter implements Serializable {
     private void printLimitedMatches(final IScoredScan scan, final Appendable out, final ISpectralMatch[] pSpectralMatches, int matchesToPrint) throws IOException {
         out.append("         <search_result>");
         out.append("\n");
+        ISpectralMatch top = pSpectralMatches[0];
         for (int i = 0; i < Math.min(matchesToPrint, pSpectralMatches.length); i++) {
             ISpectralMatch match = pSpectralMatches[i];
             int rank = i + 1;
             ISpectralMatch next = null;
             if (i < pSpectralMatches.length - 2)
                 next = pSpectralMatches[i + 1];
-            internalPrintMatch(scan, match, next, rank, out);
+            internalPrintMatch(scan, match, next,top, rank, out);
         }
           out.append("         </search_result>");
         out.append("\n");
@@ -440,15 +442,15 @@ public class PepXMLWriter implements Serializable {
     }
 
 
-    protected void printMatch(IScoredScan scan, ISpectralMatch match, ISpectralMatch nextmatch,  Appendable out) throws IOException {
+    protected void printMatch(IScoredScan scan, ISpectralMatch match, ISpectralMatch nextmatch, ISpectralMatch topMatch,  Appendable out) throws IOException {
         out.append("         <search_result>");
         out.append("\n");
-        internalPrintMatch(scan, match, nextmatch, 1, out);
+        internalPrintMatch(scan, match, nextmatch,topMatch, 1, out);
         out.append("         </search_result>");
         out.append("\n");
      }
 
-    private void internalPrintMatch(IScoredScan scan, ISpectralMatch match, ISpectralMatch nextmatch, int hitNum, Appendable out) throws IOException {
+    private void internalPrintMatch(IScoredScan scan, ISpectralMatch match, ISpectralMatch nextmatch, ISpectralMatch topmatch, int hitNum, Appendable out) throws IOException {
         out.append("            <search_hit hit_rank=\"" +
                 hitNum +
                 "\" peptide=\"");
@@ -496,25 +498,51 @@ public class PepXMLWriter implements Serializable {
 
         double value = 0;
         value = match.getHyperScore();
-        out.append("             <search_score name=\"hyperscore\" value=\"" +
+        out.append("             <search_score name=\"xcorr\" value=\"" +
                 String.format("%10.4f", value).trim() + "\"/>");
         out.append("\n");
 
-        if (nextmatch != null) {
+
+        double deltaCn = 0;
+        double deltaCnStar = 0;
+        if(nextmatch != null)  {
+            deltaCn = 1.0 - nextmatch.getHyperScore()/match.getHyperScore();
+            deltaCnStar = 1.0 - match.getHyperScore()/topmatch.getHyperScore();
+        }
+
+        // This added to match TPP comet output
+        out.append("             <search_score name=\"deltacn\" value=\"" +
+                String.format("%10.4f", deltaCn).trim() + "\"/>");
+        out.append("\n");
+        out.append("             <search_score name=\"deltacnstar\" value=\"" +
+                 String.format("%10.4f", deltaCnStar).trim() + "\"/>");
+        out.append("\n");
+        out.append("             <search_score name=\"spscore\" value=\"" +
+                String.format("%10.4f", value).trim() + "\"/>");
+        out.append("\n");
+          out.append("             <search_score name=\"sprank\" value=\"1" + "\"/>");
+        out.append("\n");
+        // End This added to match TPP comet output
+
+
+        if (false && nextmatch != null) {
             value = nextmatch.getHyperScore();
             out.append("             <search_score name=\"nextscore\" value=\"" +
                     String.format("%10.4f", value).trim() + "\"/>");
             out.append("\n");
         }
-        double bvalue = match.getScore(IonType.B);
-        out.append("             <search_score name=\"bscore\" value=\"" +
-                String.format("%10.4f", bvalue).trim() + "\"/>");
-        out.append("\n");
+        // This removed  to match TPP comet output
+        if(false) {
+            double bvalue = match.getScore(IonType.B);
+            out.append("             <search_score name=\"bscore\" value=\"" +
+                    String.format("%10.4f", bvalue).trim() + "\"/>");
+            out.append("\n");
 
-        double yvalue = match.getScore(IonType.Y);
-        out.append("             <search_score name=\"yscore\" value=\"" +
-                String.format("%10.4f", yvalue).trim() + "\"/>");
-        out.append("\n");
+            double yvalue = match.getScore(IonType.Y);
+            out.append("             <search_score name=\"yscore\" value=\"" +
+                    String.format("%10.4f", yvalue).trim() + "\"/>");
+            out.append("\n");
+        }
 
         HyperScoreStatistics hyperScores = scan.getHyperScores();
         double expected = hyperScores.getExpectedValue(match.getScore());

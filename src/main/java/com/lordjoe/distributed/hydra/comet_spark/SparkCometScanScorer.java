@@ -788,7 +788,7 @@ public class SparkCometScanScorer {
         JavaRDD<IPolypeptide> allPeptides = readAllPeptides(sparkProperties, handler);
 
          long[] peptideCounts = new long[1];
-//        allPeptides = SparkUtilities.persistAndCount("Total Peptides",allPeptides,peptideCounts);
+         allPeptides = SparkUtilities.persistAndCount("Total Peptides",allPeptides,peptideCounts);
          long numberpeptides = peptideCounts[0];
 //
 //        System.out.println("Number Spectra " + Long_Formatter.format(numberSpectra) + " Number Peptides " +   Long_Formatter.format(numberpeptides));
@@ -797,7 +797,11 @@ public class SparkCometScanScorer {
         // convert spectra into an object with scoring information
         JavaRDD<CometScoredScan> cometSpectraToScore = spectraToScore.map(new MapToCometSpectrum(comet));
 
-          /*    ==================================================
+
+        long[] spectraCounts = new long[1];
+        cometSpectraToScore = SparkUtilities.persistAndCount("Scoring Spectra",cometSpectraToScore,spectraCounts);
+        long numbescoredSpectra = spectraCounts[0];
+       /*    ==================================================
              Creating a Dataset<Row> fails
          ===========================================================*/
  //       Dataset<Row>  dataFrame = sqlCtx.createDataFrame(cometSpectraToScore, CometScoredScan.class);
@@ -900,9 +904,9 @@ public class SparkCometScanScorer {
         // JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<HashMap<String, IPolypeptide>>>> binP = keyedSpectra.cogroup(keyedPeptides);
         JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<IPolypeptide>>> binP = keyedSpectra.cogroup(keyedPeptides);
         //JavaPairRDD<BinChargeKey, Tuple2<Iterable<CometScoredScan>, Iterable<CometTheoreticalBinnedSet>>> binP = keyedSpectra.cogroup(keyedTheoreticalPeptides);
-        keyedPeptides.unpersist(); // preserve memory
+   //     keyedPeptides.unpersist(); // preserve memory
         keyedPeptides = null;
-        keyedSpectra.unpersist(); // preserve memory
+     //   keyedSpectra.unpersist(); // preserve memory
         keyedSpectra = null; // preserve memory
 
         // Test intermediate stop
@@ -923,7 +927,7 @@ public class SparkCometScanScorer {
         // NOTE this is where all the real work is done
         //JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPair(binP);
         JavaRDD<? extends IScoredScan> bestScores = handler.scoreCometBinPairPolypeptide(binP);
-        binP.unpersist(); // preserve memory
+   //     binP.unpersist(); // preserve memory
         binP = null; // release memory
 
         // Test intermediate stop

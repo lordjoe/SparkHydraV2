@@ -108,6 +108,8 @@ public class ScoreSpectrumAndPeptideWithCogroupWithoutHash extends AbstractLoggi
             numberSpectra++;
         }
         numberSpectraAccumlator.add(numberSpectra);
+        if(numberpeptides * numberSpectra == 0)
+            return  ret.iterator();
         long numberScored = 0;
 
         boolean memoryLimitHit = isMemoryLimitHit();
