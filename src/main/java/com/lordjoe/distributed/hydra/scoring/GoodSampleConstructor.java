@@ -18,8 +18,6 @@ import java.util.*;
  */
 public class GoodSampleConstructor {
 
-
-
     public static ProteinPepxmlParser readOnePepXML(String file) {
         boolean onlyUniquePeptides = false;
         ProteinPepxmlParser fdrParser = new ProteinPepxmlParser(file);

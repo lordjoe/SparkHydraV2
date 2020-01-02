@@ -20,10 +20,9 @@ public class MZXMLTests {
         String[] strings = FileUtilities.readInResourceLines(MZXMLTests.class, MZXML_FILE1);
 
         LineNumberReader rdr = new LineNumberReader(new InputStreamReader(MZXMLTests.class.getResourceAsStream(MZXML_FILE1)));
-        StringBuilder sb = new StringBuilder();
          MZXMLFile file = MZXMLFileReader.readMZXMLFile(rdr);
-         file.makeIndexedFile(sb);
-         String[] outStrings = sb.toString().split("\n");
+         String indexed = file.makeIndexedString();
+         String[] outStrings = indexed.split("\n");
        Assert.assertEquals(strings.length,outStrings.length) ;
         for (int i = 0; i < outStrings.length; i++) {
             String outString = outStrings[i].trim();
@@ -56,11 +55,10 @@ public class MZXMLTests {
         String[] strings = FileUtilities.readInLines(tesfFile);
 
         LineNumberReader rdr = new LineNumberReader(new FileReader(tesfFile));
-        StringBuilder sb = new StringBuilder();
         MZXMLFile file = MZXMLFileReader.readMZXMLFile(rdr);
-        file.makeIndexedFile(sb);
-        FileUtilities.writeFile(outFile,sb.toString());
-        String[] outStrings = sb.toString().split("\n");
+        String data =  file.makeIndexedString( );
+        FileUtilities.writeFile(outFile,data);
+        String[] outStrings = data.split("\n");
         Assert.assertEquals(strings.length,outStrings.length) ;
         for (int i = 0; i < outStrings.length; i++) {
             String outString = outStrings[i].trim();

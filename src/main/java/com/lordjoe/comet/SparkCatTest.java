@@ -12,6 +12,8 @@ import org.apache.spark.api.java.function.PairFunction;
 import scala.Option;
 import scala.Tuple2;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -37,7 +39,7 @@ public class SparkCatTest {
     public static void main(String[] args) throws Exception {
 
 
-        SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
+        SparkConf sparkConf = new SparkConf().setAppName("CatTest");
 
         Option<String> option = sparkConf.getOption("spark.master");
 
@@ -77,9 +79,12 @@ public class SparkCatTest {
 
 
         Collections.sort(collect);
+        PrintWriter out = new PrintWriter(new FileWriter("Concatinations.txt")) ;
         for (String s : collect) {
             System.out.println(s);
+             out.println(s);
         }
+        out.close();
 
 
 

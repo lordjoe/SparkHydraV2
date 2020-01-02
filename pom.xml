@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lordjoe.distributed</groupId>
     <artifactId>hydra_spark</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>hydra spark</name>
 
@@ -170,7 +170,7 @@
             </resource>
         </resources>
         <plugins>
-         <!--
+ 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -179,7 +179,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            -->
+ 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>

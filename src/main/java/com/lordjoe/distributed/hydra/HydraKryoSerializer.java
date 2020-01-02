@@ -232,7 +232,9 @@ public class HydraKryoSerializer implements KryoRegistrator, Serializable {
         doRegistration(kryo, "com.lordjoe.comet.MZXMLFileReader");
         doRegistration(kryo, "com.lordjoe.comet.MZXMLFile");
         doRegistration(kryo, "com.lordjoe.comet.MSConvertRunner");
-
+        doRegistration(kryo, "com.lordjoe.comet.SpectrumQueryWithHits");
+        doRegistration(kryo, "com.lordjoe.comet.MZXMLFileReader");
+   
     }
 
 

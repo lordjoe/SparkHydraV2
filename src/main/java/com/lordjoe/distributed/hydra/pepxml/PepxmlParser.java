@@ -1,6 +1,7 @@
 package com.lordjoe.distributed.hydra.pepxml;
 
 import com.lordjoe.lib.xml.XMLUtil;
+import com.lordjoe.utilities.FileUtilities;
 import org.systemsbiology.xtandem.IEquivalent;
 import org.systemsbiology.xtandem.fdr.IDiscoveryDataHolder;
 import org.systemsbiology.xtandem.fdr.ISpectrumDataFilter;
@@ -27,32 +28,105 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
 
     public PepxmlParser(String filename) {
         this(new File(filename));
-
-
     }
 
     public PepxmlParser(File file) {
         processFile(file);
     }
 
-
+    public PepxmlParser(String[] lines) {
+        processLines(lines);
+    }
 
     @Override
     public boolean equivalent(PepxmlParser o) {
-        if(queries.size() !=  o.queries.size())
+        if (queries.size() != o.queries.size())
             return false;
         for (String s : queries.keySet()) {
             SpectrumQuery query1 = queries.get(s);
             SpectrumQuery query2 = o.queries.get(s);
-            if(query2 == null)
+            if (query2 == null)
                 return false;
-            if(!query1.equivalent(query2)) {
-               return query1.equivalent(query2);
+            if (!query1.equivalent(query2)) {
+                return query1.equivalent(query2);
             }
         }
 
         return true;
     }
+
+    /**
+     *
+     */
+    public void processLines(String[] lines) {
+        @SuppressWarnings("UnusedDeclaration")
+        int numberProcessed = 0;
+        @SuppressWarnings("UnusedDeclaration")
+        SpectrumQuery currentQuery = null;
+        double lastRetentionTime = 0;
+
+        @SuppressWarnings("UnusedDeclaration")
+        int numberUnProcessed = 0;
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
+            if (line.contains("<spectrum_query")) {
+                String spectrum = XMLUtil.extractAttribute(line, "spectrum");
+                double retention_time_sec = XMLUtil.extractDoubleValue("retention_time_sec", line);
+                double mass = XMLUtil.extractDoubleValue("precursor_neutral_mass", line);
+                int charge = XMLUtil.extractIntegerValue("assumed_charge", line);
+                scan_id = XMLUtil.extractAttribute(line, "start_scan");
+                currentQuery = new SpectrumQuery(spectrum,
+                        mass,
+                        charge,
+                        retention_time_sec
+                );
+            }
+            if (line.contains("</spectrum_query>")) {
+                queries.put(currentQuery.spectrum, currentQuery);
+                currentQuery = null;
+            }
+
+
+            //noinspection StatementWithEmptyBody,StatementWithEmptyBody
+            if (line.contains("<search_result")) {
+                int[] passedIndex = {i};
+                String[] searchHitLines = readSearchHitLines(lines, passedIndex);
+                i = passedIndex[0] - 1;
+                //              System.out.println(line);
+                handleSearchHit(searchHitLines, currentQuery);
+            }
+
+        }
+
+        //noinspection UnnecessaryReturnStatement
+        return;
+
+
+    }
+
+    public  Map<String, SpectrumQuery> getQueries()
+    {
+        return queries;
+    }
+
+    private String[] readSearchHitLines(String[] lines, int[] passedIndex) {
+        List<String> holder = new ArrayList<String>();
+
+        int index = passedIndex[0];
+        while (index < lines.length) {
+            String line = lines[index++];
+            holder.add(line);
+            if (line.contains("</search_result")) {
+                break; // done
+
+            }
+        }
+        String[] ret = new String[holder.size()];
+        holder.toArray(ret);
+        passedIndex[0] = index;
+        return ret;
+    }
+
     /**
      *
      */
@@ -105,7 +179,8 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
 
     }
 
-    protected String[] readSearchHitLines(String line, LineNumberReader rdr, @SuppressWarnings("UnusedParameters") ISpectrumDataFilter... filters) {
+    protected String[] readSearchHitLines(String line, LineNumberReader
+            rdr, @SuppressWarnings("UnusedParameters") ISpectrumDataFilter... filters) {
         List<String> holder = new ArrayList<String>();
 
         try {
@@ -212,7 +287,8 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
 
     }
 
-    public static IdentifiedPSM buildFromModification(IdentifiedPSM peptide, List<PositionModification> modifications) {
+    public static IdentifiedPSM buildFromModification(IdentifiedPSM
+                                                              peptide, List<PositionModification> modifications) {
         Polypeptide unmodified = (Polypeptide) peptide.getPeptide();
         String id = unmodified.getId();
         String s = unmodified.getSequence();
@@ -323,7 +399,7 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
         for (SpectrumQuery value : pp.queries.values()) {
             for (SpectrumHit hit : value.getHits()) {
                 String prot = hit.getProteinId();
-                if(prot != null)
+                if (prot != null)
                     ret.add(getProteinId(prot));
             }
         }
@@ -331,12 +407,13 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
     }
 
     private static String getProteinId(String prot) {
-        String ret = prot.substring(prot.indexOf("|") + 1) ;
-        ret = ret.substring(0,ret.indexOf("|"));
+        String ret = prot.substring(prot.indexOf("|") + 1);
+        ret = ret.substring(0, ret.indexOf("|"));
         return ret;
     }
+
     private static void comparePepXlm(String[] args) {
-        List<PepxmlParser> items = new ArrayList<PepxmlParser>( );
+        List<PepxmlParser> items = new ArrayList<PepxmlParser>();
         for (int i = 0; i < args.length; i++) {
             String arg = args[i];
             PepxmlParser pp = new PepxmlParser(new File(arg));
@@ -344,10 +421,10 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
         }
 
 
-        if(args.length > 1)    {
+        if (args.length > 1) {
             PepxmlParser pp1 = items.get(0);
             PepxmlParser pp2 = items.get(1);
-            if(!pp1.equivalent(pp2)) {
+            if (!pp1.equivalent(pp2)) {
                 pp1.equivalent(pp2);
                 throw new IllegalStateException("problem"); // todo fix
 
@@ -355,41 +432,43 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
             System.out.println("Files are the same");
         }
     }
+
     private static void extractProteins(String[] args) throws Exception {
         Set<String> proteins = getProteinsFromPepXML(args[0]);
         proteins.add("Q6GZX3"); // make sure one early
-        LineNumberReader rdr = new LineNumberReader(new FileReader(args[1])) ;
+        LineNumberReader rdr = new LineNumberReader(new FileReader(args[1]));
         PrintWriter out = new PrintWriter(new FileWriter(new File(args[2])));
-        writeProteins(rdr,proteins,out);
+        writeProteins(rdr, proteins, out);
     }
 
-    private static void writeProteins(LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws Exception {
+    private static void writeProteins(LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws
+            Exception {
         String line = rdr.readLine();
-        while(line != null)  {
-            if(line.startsWith(">"))   {
-                line = handleProtein(line,rdr,proteins,out);
-            }
-            else {
+        while (line != null) {
+            if (line.startsWith(">")) {
+                line = handleProtein(line, rdr, proteins, out);
+            } else {
                 line = rdr.readLine();
             }
         }
         out.close();
     }
 
-    private static String handleProtein(String line, LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws Exception {
-        boolean useProtein = isUseProtein(line,proteins);
+    private static String handleProtein(String line, LineNumberReader rdr, Set<String> proteins, PrintWriter out) throws
+            Exception {
+        boolean useProtein = isUseProtein(line, proteins);
         String firstLine = line;
         line = rdr.readLine();
         StringBuilder sb = new StringBuilder();
 
-          while(line != null) {
-             sb.append(line);
-             sb.append("\n");
-              line = rdr.readLine();
-              if(line != null && line.startsWith(">"))
-                  break;
+        while (line != null) {
+            sb.append(line);
+            sb.append("\n");
+            line = rdr.readLine();
+            if (line != null && line.startsWith(">"))
+                break;
         }
-        if(useProtein)  {
+        if (useProtein) {
             out.println(firstLine);
             out.print(sb.toString());
         }
@@ -400,8 +479,8 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
 
     private static boolean isUseProtein(String line, Set<String> proteins) {
         for (String protein : proteins) {
-              if(line.contains("|" + protein + "|"))
-                  return true;
+            if (line.contains("|" + protein + "|"))
+                return true;
         }
         return false;
     }
@@ -412,11 +491,23 @@ public class PepxmlParser implements IEquivalent<PepxmlParser> {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        extractProteins(args);
-
+    public static void parseXMLString(String filename) {
+        String s = FileUtilities.readInFile(filename);
+        String[] lines = s.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            lines[i] = lines[i].replace("\r", "");
+        }
+        PepxmlParser pepxmlParser = new PepxmlParser(lines);
+        for (String s1 : pepxmlParser.queries.keySet()) {
+            SpectrumQuery spectrumQuery = pepxmlParser.queries.get(s1);
+            spectrumQuery.getHitsCount();
+        }
     }
 
+    public static void main(String[] args) throws Exception {
+        // extractProteins(args);
+        parseXMLString(args[0]);
+    }
 
 
 }

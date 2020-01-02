@@ -86,21 +86,30 @@ public class MZXMLSplitter implements Serializable {
     }
 
 
-    public static void splitMZXML(File input, File outDir, int maxScans) throws IOException {
+    public static List<File> splitMZXML(File input, File outDir, int maxScans) throws IOException {
+        List<File>  ret = new ArrayList<>();
          FileUtilities.expungeDirectory(outDir);
         boolean ok = outDir.mkdirs();
         String[] lineHolder = new String[1];
         LineNumberReader rdr = new LineNumberReader(new FileReader(input));
         String header = readMZXMLHeader(rdr, lineHolder);
-        while (readAndSaveScans(outDir, rdr, header, lineHolder, maxScans)) ;
+        File f = readAndSaveScans(outDir, rdr, header, lineHolder, maxScans) ;
+        while(f != null)   {
+            ret.add(f);
+            f = readAndSaveScans(outDir, rdr, header, lineHolder, maxScans) ;
+        }
+        return ret;
     }
 
-    public static boolean readAndSaveScans(File outDir, LineNumberReader rdr, String header, String[] lineHolder, int maxScans) throws IOException {
+    public static File readAndSaveScans(File outDir, LineNumberReader rdr, String header, String[] lineHolder, int maxScans) throws IOException {
+        List<File> ret = new ArrayList<>();
         String line = lineHolder[0];
         if (line == null)
-            return false;
+            return null;
+        if (line.contains(END_SCANS))
+            return null; // done
         if (!line.contains(SCAN_START))
-            return false;
+            throw new IllegalArgumentException("bad"); // ToDo change
         int numberScans = 0;
         StringBuilder sb = new StringBuilder();
 
@@ -109,14 +118,14 @@ public class MZXMLSplitter implements Serializable {
             MZXMLFile file = new MZXMLFile(header);
             int newScans = readNextScan(rdr, lineHolder, file, maxScans);
             if (newScans > 0)
-                saveMZXML(outDir, file);
+                return saveMZXML(outDir, file);
             if(newScans == 0)  {
-                return false; // done
+                return null; // done
             }
 
             sb.setLength(0);
         }
-        return true;
+        return null;
     }
 
     public static int readNextScan(LineNumberReader rdr, String[] lineHolder, MZXMLFile file, int maxScans) throws IOException {
@@ -131,38 +140,48 @@ public class MZXMLSplitter implements Serializable {
         scanLevel++;
         StringBuilder sb = new StringBuilder();
         while (line != null) {
-            sb.append(line);
-            sb.append("\n");
-            line = rdr.readLine();
+            String workingLine = line;
+              line = rdr.readLine();
             if (line == null)
                 break;
             if (line.contains(END_SCANS))
                 break;
-            if (line.contains(SCAN_END)) {
+            sb.append(workingLine);
+            sb.append("\n");
+            if (workingLine.contains(SCAN_END)) {
                 scanLevel--;
             }
             if (line.contains(SCAN_START)) {
-                numberScans++;
-                if (scanLevel == 0) {
+                 if (scanLevel == 0) {
                     file.addScan(sb.toString());
                     sb.setLength(0);
                     if (numberScans >= maxScans)
                         break;
                     scanLevel++;
                 }
+                numberScans++;
             }
+            // pick up the last scan
+            if(line.contains(END_SCANS) && sb.length() > 0)   {
+                String lastScan = sb.toString();
+                if(lastScan. contains(SCAN_START) && lastScan. contains(SCAN_END)) {
+                    if (scanLevel == 0) {
+                        file.addScan(lastScan);
+                    }
+                }
+             }
         }
 
         lineHolder[0] = line;
         return numberScans;
     }
 
-    public static void saveMZXML(File outDir, MZXMLFile file)  throws IOException {
+    public static File saveMZXML(File outDir, MZXMLFile file)  throws IOException {
         File  out = buildFile(outDir);
         System.out.println(out.getName());
-        StringBuilder sb = new StringBuilder();
-        file.makeIndexedFile(sb);
-        FileUtilities.writeFile(out,sb.toString());
+        String text = file.makeIndexedString();
+        FileUtilities.writeFile(out,text);
+        return out;
     }
 
     public static void main(String[] args) throws IOException {

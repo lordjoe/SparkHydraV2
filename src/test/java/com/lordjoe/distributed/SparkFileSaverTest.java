@@ -40,6 +40,8 @@ public class SparkFileSaverTest {
         String line = rdr.readLine();
         int index = 0;
         while(line != null) {
+            if(line.trim().length() == 0)
+                break;
             Assert.assertEquals(lines[index++].trim(),line.trim());
             line = rdr.readLine();
         }

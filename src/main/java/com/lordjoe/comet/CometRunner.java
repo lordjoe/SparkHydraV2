@@ -40,7 +40,7 @@ public class CometRunner implements Serializable {
 
 
     private static File buildParams(File fasta, int index) {
-        String s = FileUtilities.readInFile("Comet.base.params");
+        String s = FileUtilities.readInFile("comet.base.params");
         s.replace("XXXSET_FAST_NAME_HEREXXX", fasta.getAbsolutePath());
         File ret = new File("Comet" + index + ".params");
         FileUtilities.writeFile(ret, s);

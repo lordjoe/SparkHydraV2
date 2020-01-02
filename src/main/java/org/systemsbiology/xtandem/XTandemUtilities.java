@@ -1234,8 +1234,8 @@ public class XTandemUtilities {
 
             }
         }
-
-         throw new UnsupportedOperationException("Fix This"); // ToDo
+        return null;
+     //    throw new UnsupportedOperationException("Fix This"); // ToDo
 
     }
 

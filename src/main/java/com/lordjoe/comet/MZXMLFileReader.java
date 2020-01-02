@@ -1,5 +1,7 @@
 package com.lordjoe.comet;
 
+import com.lordjoe.utilities.FileUtilities;
+
 import java.io.*;
 
 /**
@@ -63,10 +65,9 @@ public class MZXMLFileReader  implements Serializable {
 
     public static void main(String[] args) throws IOException {
         LineNumberReader rdr = new LineNumberReader(new FileReader(new File(args[0])));
-        PrintWriter out = new PrintWriter(new FileWriter(new File(args[1])));
-         MZXMLFile file =  readMZXMLFile(rdr);
-            file.makeIndexedFile(out);
-         out.close();
+            MZXMLFile file =  readMZXMLFile(rdr);
+         String text = file.makeIndexedString();
+        FileUtilities.writeFile(args[1],text);
     }
 
 }

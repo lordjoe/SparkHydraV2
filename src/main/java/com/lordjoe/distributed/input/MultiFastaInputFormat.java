@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * com.lordjoe.distributed.input.FastaInputFormat
+ * com.lordjoe.distributed.input.MultiFastaInputFormat
  * User: Steve
  * Date: 9/24/2014
  */

@@ -39,9 +39,9 @@ public class SparkFileSaver {
      */
     public static void saveAsFile(@Nonnull Path outPath, @Nonnull JavaRDD<String> data, String header, String footer) {
 
-        if(header == null || header.length()  < 1)
+        if (header == null || header.length() < 1)
             header = "  ";
-        if(footer == null || footer.length()  < 1)
+        if (footer == null || footer.length() < 1)
             footer = "  ";
 
 
@@ -60,18 +60,38 @@ public class SparkFileSaver {
 
 
         try {
-            srcFS.delete(outPath,false);
+            srcFS.delete(outPath, false);
             copyMerge(srcFS, tempPath, srcFS, outPath, deleteSource, conf,
-                    header.substring(1, header.length()-1), footer.substring(1, footer.length()-1));
-        }
-        catch (IOException e) {
+                    header.substring(0, header.length() - 1), footer.substring(0, footer.length() - 1));
+        } catch (IOException e) {
             throw new RuntimeException(e);
 
         }
         HadoopUtilities.expunge(tempPath, SparkUtilities.getHadoopFileSystem());
     }
 
-    /** Copy all files in a directory to one output file (merge). */
+
+    /**
+     * save an RDD of text to a single file
+     *
+     * @param outPath path of the output file
+     * @param data    rdd to save
+     */
+    public static void saveAsFile(@Nonnull Path outPath, @Nonnull JavaRDD<String> data) {
+
+
+        // Make sure the output files do not exist otherwise you will get
+        //  org.apache.hadoop.mapred.FileAlreadyExistsException
+        HadoopUtilities.expunge(outPath, SparkUtilities.getHadoopFileSystem());
+
+        data.saveAsTextFile(outPath.toString());
+
+    }
+
+
+    /**
+     * Copy all files in a directory to one output file (merge).
+     */
     public static boolean copyMerge(FileSystem srcFS, Path srcDir,
                                     FileSystem dstFS, Path dstFile,
                                     boolean deleteSource,

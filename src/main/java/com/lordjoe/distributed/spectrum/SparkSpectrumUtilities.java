@@ -127,7 +127,7 @@ public class SparkSpectrumUtilities {
 
     @Nonnull
     public static JavaPairRDD<String, String> partitionAsMZXML(@Nonnull final String path, @Nonnull final JavaSparkContext ctx,
-                                                               XTandemMain application,int spectraToHandle,
+                                                               int spectraToHandle,
                                                                String fileHeader  ) {
         Configuration conf = new  Configuration(SparkUtilities.getHadoopConfiguration());
         conf.setInt("spectra",spectraToHandle);

@@ -92,28 +92,34 @@ public class DataSetCometScorer {
 
         RDD<RawPeptideScan> rdd = spectraToScoreY.rdd();
      //     Dataset<RawPeptideScan> spectraToScore = currentSession.createDataset(rdd,evidence);
-        Dataset<RawPeptideScan> spectraToScore = sqlCtx.createDataset( spectraToScoreY.rdd(), evidence);
+
+        if(true) throw new UnsupportedOperationException("Fix This"); // ToDo
+      //  Dataset<RawPeptideScan> spectraToScore = sqlCtx.createDataset( spectraToScoreY.rdd(), evidence);
 
 
         JavaRDD<IPolypeptide> allPeptidesX = readAllPeptides(sparkProperties, handler);
         JavaRDD<Polypeptide> allPeptidesY = SparkUtilities.asConcreteRDD(allPeptidesX,Polypeptide.class);
 
         Encoder<Polypeptide> polyEvidence = Encoders.kryo(Polypeptide.class);
-        Dataset<Polypeptide> allPeptides = sqlCtx.createDataset( allPeptidesY.rdd(), polyEvidence);
+        if(true)
+            throw new UnsupportedOperationException("Fix This"); // ToDo
+     //   Dataset<Polypeptide> allPeptides = sqlCtx.createDataset( allPeptidesY.rdd(), polyEvidence);
 
 
            // convert spectra into an object with scoring information
         MapToCometRawSpectrum mapToCometRawSpectrum = new MapToCometRawSpectrum(comet);
 
-        Dataset<CometScoredScan> cometSpectraToScore = spectraToScore.map(mapToCometRawSpectrum,Encoders.kryo(CometScoredScan.class));
-
-        StructType schema = cometSpectraToScore.schema();
-        StructField[] fields = schema.fields();
-        for (int i = 0; i < fields.length; i++) {
-            StructField field = fields[i];
-            System.out.println(field);
-        }
-
+        if(true)
+            throw new UnsupportedOperationException("Fix This"); // ToDo
+        //     Dataset<CometScoredScan> cometSpectraToScore = spectraToScore.map(mapToCometRawSpectrum,Encoders.kryo(CometScoredScan.class));
+//
+//        StructType schema = cometSpectraToScore.schema();
+//        StructField[] fields = schema.fields();
+//        for (int i = 0; i < fields.length; i++) {
+//            StructField field = fields[i];
+//            System.out.println(field);
+//        }
+//
 
          // if you want to limt do so here
          // cometSpectraToScore = countAndLimitSpectra(cometSpectraToScore);

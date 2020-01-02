@@ -65,7 +65,28 @@ public class MZXMLFile  implements Serializable {
     public static final int GLOBAL_OFFSET = 4;
     public static final int INDEX_OFFSET = 2;
     public static final String RUN_END = "  </msRun>\n";
-    public void makeIndexedFile(Appendable out) throws IOException
+
+
+
+    public String makeIndexedString() {
+         StringBuilder out = new StringBuilder();
+        List<Integer> ids = new ArrayList<>(scans.keySet());
+        Collections.sort(ids);
+        out.append(header);
+        int offset = header.length();
+        for (Integer id : ids) {
+            String scan = scans.get(id) ;
+              out.append(scan);
+            offset += scan.length();
+        }
+        out.append(RUN_END);
+
+
+        return MzXMLUtilities.generateIndexedData(out.toString());
+    }
+
+
+    public void makeIndexedFileOld(Appendable out) throws IOException
     {
         List<IdentifiedOffset> offsets = new ArrayList<>();
         List<Integer> ids = new ArrayList<>(scans.keySet());

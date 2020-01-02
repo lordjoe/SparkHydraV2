@@ -33,7 +33,7 @@ public class DataSetTester {
         JavaSparkContext currentContext = new JavaSparkContext(sparkConf);
      //   SparkSession session = SparkSession.builder().sparkContext(currentContext.sc()).getOrCreate();
 
-        SQLContext sqlCtx = new SQLContext(currentContext);
+            SQLContext sqlCtx = new SQLContext(currentContext);
 
         List<DatasetTestObject> holder = new ArrayList<DatasetTestObject>();
         for (int i = 0; i < NUMBER_OBJECTS; i++) {

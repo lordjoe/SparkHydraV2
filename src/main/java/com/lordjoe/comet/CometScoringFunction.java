@@ -2,6 +2,7 @@ package com.lordjoe.comet;
 
 import com.lordjoe.distributed.SparkUtilities;
 import com.lordjoe.distributed.spark.accumulators.AbstractLoggingFunction;
+import com.lordjoe.utilities.ElapsedTimer;
 import com.lordjoe.utilities.FileUtilities;
 import org.apache.spark.SparkFiles;
 import scala.Tuple2;
@@ -17,7 +18,22 @@ import java.util.UUID;
  */
 public class CometScoringFunction extends AbstractLoggingFunction<Tuple2<String, String>, String> {
 
+    private static final long MAX_ELAPSED = 20 * 60 * 1000; // 10 minutes
     private transient String baseParamters;
+
+    private String getCurrentParameters(String fastaFile) {
+         StringBuilder sb = new StringBuilder();
+        String params = getBaseParams();
+        String[] split = params.split("\n");
+        for (int i = 0; i < split.length; i++) {
+            String s = split[i];
+             if(s.contains("database_name"))
+                 s = "database_name = "  + fastaFile;
+             sb.append(s);
+             sb.append("\n");
+        }
+        return sb.toString();
+    }
 
     @Override
     public String doCall(Tuple2<String, String> v1) throws Exception {
@@ -28,21 +44,50 @@ public class CometScoringFunction extends AbstractLoggingFunction<Tuple2<String,
         FileUtilities.writeFile(fastaFile,fasta);
         File xmlFile = createLocalFile(mzXML,"mzXML");
         FileUtilities.writeFile(xmlFile,mzXML);
-        String params = getBaseParams().replace("XXXSET_FAST_NAME_HEREXXX", fastaFile.getAbsolutePath());
+        String params = getCurrentParameters(fastaFile.getAbsolutePath());
         File paramsFile = createLocalFile(params,"params");
         FileUtilities.writeFile(paramsFile,params);
-        File outFile = new File(xmlFile.getAbsolutePath().replace(".mzXML", ".pep.xml"));
+        String outFilePath = xmlFile.getAbsolutePath().replace(".mzXML", ".pep.xml").replace("\\", "/");
+        File outFile = new File(outFilePath);
+        String outfileName =  outFile.getName();
+        outfileName = outfileName.replace(".pep.xml","");
+
         boolean success = CommandLineExecutor.executeCommandLine("comet",
                 "-P" + paramsFile.getName(),
                 xmlFile.getAbsolutePath()
         );
         String ret = null;
-        if (success) {
-            ret = FileUtilities.readInFile(outFile);
+        if(success) {
+            ElapsedTimer timer = new ElapsedTimer();
+            while (timer.getElapsedMillisec() < MAX_ELAPSED) {
+                if (outFile.exists() && outFile.canRead())
+                    break;
+                System.out.println("Waiting for file " + outFile.getAbsolutePath());
+                  Thread.sleep(3000);
+            }
+            if (!outFile.exists() || !outFile.canRead()) {
+                System.err.println("File timeout after  " + timer.getElapsedMillisec() / 1000);
+            }
+            if (success) {
+                ret = FileUtilities.readInFile(outFile);
+                if (ret != null)
+                    ret = ret.replace(outfileName, "Spectrum");
+                else
+                    System.out.println(outFile);
+            }
+            fastaFile.delete();
+            xmlFile.delete();
+            paramsFile.delete();
+             outFile.delete();
         }
-        fastaFile.delete();
-        xmlFile.delete();
-        paramsFile.delete();
+        else {
+            System.out.println("handle error " + fastaFile.getAbsolutePath() +
+                    " " +  xmlFile.getAbsolutePath() +
+                    " " +  paramsFile.getAbsolutePath()
+
+            );
+            System.out.println("Stop andf look");
+        }
         return ret;
 
     }
@@ -62,15 +107,8 @@ public class CometScoringFunction extends AbstractLoggingFunction<Tuple2<String,
         String path = SparkFiles.get("comet.base.params");
 
         path = path.replace("\\", "/");
-        List<String> collect = SparkUtilities.getCurrentContext().textFile(path)
-                .collect();
-        StringBuilder sb = new StringBuilder();
-        for (String s : collect) {
-            sb.append(s);
-            sb.append("\n");
-        }
-
-        return sb.toString();
+        String ret = FileUtilities.readInFile(path) ;
+        return ret;
 
     }
 }

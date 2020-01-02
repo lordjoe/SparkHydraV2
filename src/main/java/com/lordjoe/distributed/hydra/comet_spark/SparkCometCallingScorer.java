@@ -342,7 +342,7 @@ public class SparkCometCallingScorer {
 
         String spectra = SparkUtilities.buildPath(spectrumPath);
         int spectraToHandle = 1000;
-        JavaPairRDD<String,String > subspectra = getPartitionSpectra(spectra, scoringApplication,spectraToHandle);
+        JavaPairRDD<String,String > subspectra = getPartitionSpectra(spectra,  spectraToHandle);
 
         Map<String, String> stringStringMap = subspectra.collectAsMap();
  
@@ -406,12 +406,12 @@ public class SparkCometCallingScorer {
 
 
 
-    public static JavaPairRDD<String,String> getPartitionSpectra( final String pSpectra, XTandemMain application,int spectraToHandle) {
+    public static JavaPairRDD<String,String> getPartitionSpectra( final String pSpectra, int spectraToHandle) {
            JavaSparkContext currentContext = SparkUtilities.getCurrentContext();
         String fileHeader = MultiMZXMLScanInputFormat.readMZXMLHeader(new Path(pSpectra));
 
         // read spectra
-        JavaPairRDD<String, String> scans = SparkSpectrumUtilities.partitionAsMZXML(pSpectra,currentContext, application,spectraToHandle,fileHeader);
+        JavaPairRDD<String, String> scans = SparkSpectrumUtilities.partitionAsMZXML(pSpectra,currentContext,spectraToHandle,fileHeader);
         // next line is for debugging
         // spectraToScore = SparkUtilities.realizeAndReturn(spectraToScore);
          return scans;

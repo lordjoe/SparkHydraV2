@@ -1,6 +1,7 @@
 package com.lordjoe.distributed.hydra.comet_spark;
 
 import com.lordjoe.algorithms.*;
+import com.lordjoe.comet.SparkCatTest;
 import com.lordjoe.distributed.*;
 import com.lordjoe.distributed.hydra.*;
 import com.lordjoe.distributed.hydra.comet.*;
@@ -1241,7 +1242,6 @@ public class SparkCometScanScorer {
         Logger rootLogger = Logger.getRootLogger();
         rootLogger.setLevel(Level.WARN);
         AccumulatorUtilities.setFunctionsLoggedByDefault(false);
-
 
 
         //  pairedScoring(args);
