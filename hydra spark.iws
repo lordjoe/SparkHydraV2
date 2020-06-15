@@ -2,46 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f004f75f-5f65-4354-a6fd-ed09f2a76726" name="Default" comment="Fix Security issues">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CometConsolidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MZMLIndexGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MzXMLUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/SpectrumQueryWithHits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/TagExtractionFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/systemsbiology/xtandem/comet/MZXMLIndexTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/systemsbiology/xtandem/fdr/ProteinPepxmlParserTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test.mzXML" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testIndexed.mzXML" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/HydraSpark.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/SparkLocalClusterEg3.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/SparkLocalClusterEg3.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hydra spark.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/hydra spark.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hydra spark.iws" beforeDir="false" afterPath="$PROJECT_DIR$/hydra spark.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hydra_spark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hydra_spark.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hydra_spark.iws" beforeDir="false" afterPath="$PROJECT_DIR$/hydra_spark.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CometRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CometRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CometScoringFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CometScoringFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CommandLineExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/CommandLineExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MZXMLFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MZXMLFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MZXMLFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/MZXMLFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/PepxmlParsingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/PepxmlParsingFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/SparkCatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/SparkCatTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/SparkCometCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/comet/SparkCometCaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkFileSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/SparkFileSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/HydraKryoSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/HydraKryoSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/DataSetCometScorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometCallingScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometCallingScorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/comet_spark/SparkCometScanScorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/pepxml/PepxmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/pepxml/PepxmlParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/scoring/GoodSampleConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/hydra/scoring/GoodSampleConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/input/MZXMLSplitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/input/MZXMLSplitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/input/MultiFastaInputFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/input/MultiFastaInputFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/spectrum/SparkSpectrumUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/spectrum/SparkSpectrumUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lordjoe/distributed/test/DataSetTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xml/XMLUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xml/XMLUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/XTandemUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/systemsbiology/xtandem/XTandemUtilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/lordjoe/comet/MZXMLTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lordjoe/comet/MZXMLTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/SparkFileSaverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lordjoe/distributed/SparkFileSaverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,50 +22,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>accum</find>
-      <find>org.apache.spark.Logging</find>
-      <find>AbstractLoggingFlatMapFunction</find>
-      <find>com.lordjoe.distributed</find>
-      <find>MEMORY_ACCUMULATOR_NAME</find>
-      <find>showAccumulators</find>
-      <find>logging</find>
-      <find>DataFrame</find>
-      <find>Accumulator&lt;Long&gt;</find>
-      <find>Evidence</find>
-      <find>DatasetCometScanScorer</find>
-      <find>LongAccumulableParam</find>
-      <find>letterStats</find>
-      <find>com.lordjoe.distributed.spark.accumulators.SparkAccumulators</find>
-      <find>registerTempTable</find>
-      <find>getDistributedCacheFiles</find>
-      <find>List</find>
-      <find>Collection</find>
-      <find>Reader</find>
-      <find>getCurrentSQLContext</find>
-      <find>array_update</find>
-      <find>RawPeptideScan</find>
-      <find>Kryo</find>
-      <find>Basic</find>
-      <find>AccumulatorV2</find>
-      <find>usage</find>
-      <find>empty</find>
-      <find>com.lordjoe.distributed.spark.accumulators.MachineUseAccumulatorV2</find>
-      <find>MachineUseAccumulatorV2</find>
-      <find>MachineUseAccumulatorV2</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>Dataset&lt;Row&gt;</replace>
-      <replace>LongAccumulator</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>E:\spectra-cluster\src</dir>
-      <dir>E:\sparkhydra</dir>
-      <dir>E:\sparkhydra\src</dir>
-      <dir>E:\SparkAccumulators</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
@@ -163,7 +80,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="E:/SparkAccumulatorsV2/src/main/java" />
-    <property name="last_opened_file_path" value="E:/ThirdParty/winutils-master/hadoop-3.0.0/bin" />
+    <property name="last_opened_file_path" value="$USER_HOME$/driveT/BLAST/parallel-20120122/README" />
     <property name="panda.monitored.classes" value="" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -539,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577993978632</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix Security issues">
+      <created>1577994371648</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577994371648</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -560,26 +484,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix Security issues" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2157" y="263" width="786" height="826" key="CommitChangelistDialog2" timestamp="1577994319281">
+    <state x="2157" y="263" width="786" height="826" key="CommitChangelistDialog2" timestamp="1577994371459">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
-    <state x="2157" y="263" width="786" height="826" key="CommitChangelistDialog2/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577994319281" />
-    <state width="846" height="917" key="GridCell.Tab.0.bottom" timestamp="1577993634776">
+    <state x="2157" y="263" width="786" height="826" key="CommitChangelistDialog2/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577994371459" />
+    <state x="2366" y="414" width="430" height="485" key="FileChooserDialogImpl" timestamp="1578329003993">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
-    <state width="846" height="917" key="GridCell.Tab.0.bottom/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577993634776" />
-    <state width="846" height="917" key="GridCell.Tab.0.center" timestamp="1577993634775">
+    <state x="2366" y="414" width="430" height="485" key="FileChooserDialogImpl/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1578329003993" />
+    <state width="1348" height="250" key="GridCell.Tab.0.bottom" timestamp="1577998392327">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
-    <state width="846" height="917" key="GridCell.Tab.0.center/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577993634775" />
-    <state width="846" height="917" key="GridCell.Tab.0.left" timestamp="1577993634775">
+    <state width="1348" height="250" key="GridCell.Tab.0.bottom/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577998392327" />
+    <state width="1348" height="250" key="GridCell.Tab.0.center" timestamp="1577998392327">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
-    <state width="846" height="917" key="GridCell.Tab.0.left/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577993634775" />
-    <state width="846" height="917" key="GridCell.Tab.0.right" timestamp="1577993634821">
+    <state width="1348" height="250" key="GridCell.Tab.0.center/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577998392327" />
+    <state width="1348" height="250" key="GridCell.Tab.0.left" timestamp="1577998392327">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
-    <state width="846" height="917" key="GridCell.Tab.0.right/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577993634821" />
+    <state width="1348" height="250" key="GridCell.Tab.0.left/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577998392327" />
+    <state width="1348" height="250" key="GridCell.Tab.0.right" timestamp="1577998392327">
+      <screen x="1680" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1348" height="250" key="GridCell.Tab.0.right/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577998392327" />
+    <state x="2178" y="392" width="806" height="529" key="Vcs.Push.Dialog.v2" timestamp="1577994392662">
+      <screen x="1680" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2178" y="392" width="806" height="529" key="Vcs.Push.Dialog.v2/1680.0.1920.1200/3600.250.1920.1080/0.150.1680.1050@1680.0.1920.1200" timestamp="1577994392662" />
     <state x="2215" y="395" width="672" height="678" key="search.everywhere.popup" timestamp="1577993307676">
       <screen x="1680" y="0" width="1920" height="1200" />
     </state>
